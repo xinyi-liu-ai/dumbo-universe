@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dumbo Universe · 小飞象宇宙档案</title>
+<meta name="description" content="以 Dumbo 为圆心的非官方 IP 百科：1941 年电影、角色、乐园、商品、周年纪念与地区限定，可筛选、可视化。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dumbo Universe · 小飞象宇宙档案">
+<meta property="og:description" content="以 Dumbo 为圆心的非官方 IP 百科：1941 年电影、角色、乐园、商品、周年纪念与地区限定，可筛选、可视化。">
+<meta property="og:url" content="https://xinyi-liu-ai.github.io/dumbo-universe/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='15' cy='34' rx='14' ry='13' fill='%23A9B8CC'/%3E%3Cellipse cx='49' cy='34' rx='14' ry='13' fill='%23A9B8CC'/%3E%3Ccircle cx='32' cy='36' r='15' fill='%23A9B8CC'/%3E%3Cpath d='M25 23 L32 6 L39 23Z' fill='%23CF4A74'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&family=Shrikhand&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="rail">
+  <div class="rail-in">
+    <button class="brand" data-go="universe" aria-label="回到宇宙首页"><b>Dumbo</b><span>宇宙档案</span></button>
+    <nav class="tabs" aria-label="视图">
+      <button data-view="universe">宇宙</button>
+      <button data-view="graph">关系网络</button>
+      <button data-view="archive">档案库</button>
+      <button data-view="timeline">时间轴</button>
+      <button data-view="world">世界</button>
+      <button data-view="design">造型演变</button>
+      <button data-view="schema">数据结构</button>
+    </nav>
+    <div class="tools">
+      <label class="search" for="q"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="搜索：Timothy、毛绒、85周年…" autocomplete="off"></label>
+      <button class="btn primary" id="addBtn" hidden>添加条目</button>
+    </div>
+  </div>
+  <div class="valance" aria-hidden="true"></div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="v-universe">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">非官方 IP 百科 · 始于 1941-10-23</p>
+        <h1>以 <em>Dumbo</em> 为圆心的一切</h1>
+        <p class="lead">电影、角色、乐园、商品、周年、联名、地区限定，只要和小飞象有直接或可追溯的关系，就是这个宇宙里的一个节点。同一件东西可以从多个入口找到。</p>
+        <div class="count" id="countdown"></div>
+        <dl class="stats" id="stats"></dl>
+        <div class="presets"><span class="eyebrow">试试这些查询</span><div class="presets-list" id="presets"></div></div>
+      </div>
+      <figure class="orbit-fig">
+        <svg class="orbit" id="orbit" viewBox="0 0 960 960" role="img" aria-label="以 Dumbo 为中心的宇宙轨道图：内圈是十个领域，外圈是所有条目"></svg>
+        <figcaption class="orbit-cap">悬停任意条目查看它连向哪里，点击打开档案卡。内圈是十个领域，外圈按领域分组排列全部条目。</figcaption>
+      </figure>
+    </div>
+    <div class="section-t"><h2>十个领域</h2><span class="eyebrow">点击进入档案库</span></div>
+    <div class="domains" id="domains"></div>
+  </section>
+
+  <section class="view" id="v-graph" hidden>
+    <div class="view-head"><div><h2>关系网络</h2><p>每个节点是一个条目，每条线是一种关系。Dumbo 固定在中心。拖动画布平移，按住 Ctrl 滚动滚轮或用下方按钮缩放，点击节点打开档案卡。虚线表示“属于某个地区”。</p></div></div>
+    <div class="gtools">
+      <label class="search" for="gq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="gq" type="search" placeholder="在网络中高亮…" autocomplete="off"></label>
+      <div style="display:flex;gap:6px"><button class="btn small" data-zoom="1.4" aria-label="放大">＋</button><button class="btn small" data-zoom="0.7" aria-label="缩小">－</button><button class="btn small" data-zoom="0">复位</button></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="gbox" id="graph"></div>
+    <p class="ghint">悬停节点：只显示它和直接相连的节点。</p>
+  </section>
+
+  <section class="view" id="v-archive" hidden>
+    <div class="view-head"><div><h2>档案库</h2><p>每个条目可以有多个领域、地区、角色和发行类型。各组筛选之间是“并且”，组内是“或者”。</p></div></div>
+    <div class="archive">
+      <details class="facets" id="facetsBox" open><summary>筛选条件</summary><div id="facets"></div></details>
+      <div>
+        <div class="ahead"><div><span class="n" id="anum">0</span> <span style="color:var(--ink-2)">个条目</span></div>
+          <label style="font-size:13.5px;color:var(--ink-2)">排序 <select id="sort"><option value="year">年份从早到晚</option><option value="year-desc">年份从晚到早</option><option value="name">名称</option><option value="links">关系最多</option></select></label></div>
+        <div class="active" id="active"></div>
+        <div class="grid" id="results"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-timeline" hidden>
+    <div class="view-head"><div><h2>时间轴</h2><p>从 1939 年的原作到今天。金色圆点是 Dumbo 上映的整五周年，可以一眼看出某一年全世界的 Dumbo 发生了什么。</p></div></div>
+    <div class="tl-filter" id="tlFilter"></div>
+    <div id="timeline"></div>
+  </section>
+
+  <section class="view" id="v-world" hidden>
+    <div class="view-head"><div><h2>世界</h2><p>按 Dumbo 在全球的存在组织，而不是按“我去过哪里”。点地图上的地点或下方的地区。</p></div></div>
+    <div class="mapbox"><svg class="map" id="map" role="img" aria-label="世界地图，标出与 Dumbo 有关的地点"></svg></div>
+    <div class="regions" id="regions"></div>
+    <div class="wlist" id="wlist"></div>
+  </section>
+
+  <section class="view" id="v-design" hidden>
+    <div class="view-head"><div><h2>造型演变</h2><p>拖动时间轴，看 Dumbo 的头身比例、眼睛和耳朵如何一步步变“萌”。这里是根据各时期常见风格画的示意图，不是某件具体商品。</p></div></div>
+    <div class="design">
+      <div>
+        <div class="stage"><svg id="ele" viewBox="0 0 400 400" role="img" aria-label="Dumbo 造型示意"></svg></div>
+        <div class="eras" id="eras"></div>
+        <input class="slider" id="eraSlider" type="range" min="0" max="4" step="0.01" value="0" aria-label="年代">
+        <div class="ticks"><span>1941</span><span>1950s</span><span>1980s</span><span>2000s</span><span>2020s</span></div>
+      </div>
+      <div class="enote" id="enote"></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-schema" hidden>
+    <div class="view-head"><div><h2>数据结构</h2><p>所有东西统一叫“条目”，条目之间用有名字的关系连接。先把类型和关系定下来，以后加到几千条也不会乱。</p></div></div>
+    <div class="schema" id="schema"></div>
+  </section>
+
+  <footer class="footer"><span>非官方粉丝资料库，与 The Walt Disney Company 无关联。角色与作品名称归各自权利人所有。</span><span><a href="https://github.com/xinyi-liu-ai/dumbo-universe">数据与源码 · GitHub</a> <span id="foot-db"></span></span></footer>
+</main>
+
+<aside class="drawer" id="drawer" hidden aria-label="条目详情"></aside>
+<div class="modal" id="modal" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+<datalist id="entList"></datalist>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="assets/world-land.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

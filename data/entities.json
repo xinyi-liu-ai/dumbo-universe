@@ -1,0 +1,3063 @@
+[
+  {
+    "id": "chr.dumbo",
+    "type": "Character",
+    "zh": "小飞象",
+    "name": "Dumbo",
+    "domains": [
+      "characters",
+      "origins"
+    ],
+    "year": 1941,
+    "tags": [
+      "主角",
+      "大耳朵",
+      "飞行"
+    ],
+    "continuity": [
+      "1941 动画",
+      "2019 真人",
+      "乐园"
+    ],
+    "summary": "本名 Jumbo Jr.（小珍宝），是珍宝太太的儿子。因为一对超大的耳朵被马戏团同伴嘲笑，被叫成 Dumbo。在 Timothy 的帮助下，他发现耳朵能让自己飞起来，从笑柄变成了马戏团的明星。全片没有一句台词。",
+    "facts": {
+      "本名": "Jumbo Jr.",
+      "性别": "男孩",
+      "首次登场": "Dumbo (1941)",
+      "主要动画师": "Bill Tytla",
+      "台词": "无，全片不说话"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Movies · Dumbo",
+        "url": "https://movies.disney.com/dumbo"
+      },
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "friend_of",
+        "chr.timothy"
+      ],
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "animated_by",
+        "per.tytla"
+      ],
+      [
+        "uses_motif",
+        "con.feather"
+      ],
+      [
+        "uses_motif",
+        "des.ears"
+      ]
+    ]
+  },
+  {
+    "id": "chr.mrsjumbo",
+    "type": "Character",
+    "zh": "珍宝太太",
+    "name": "Mrs. Jumbo",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "母亲"
+    ],
+    "continuity": [
+      "1941 动画",
+      "2019 真人"
+    ],
+    "summary": "Dumbo 的妈妈。为了保护被围观者欺负的 Dumbo 而发怒，被当成“疯象”关进笼子。她隔着栏杆用鼻子摇着 Dumbo 时响起的《Baby Mine》，是全片最常被提起的段落。",
+    "facts": {
+      "首次登场": "Dumbo (1941)",
+      "配音": "Verna Felton",
+      "2019 版": "同名角色出现"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Movies · Dumbo",
+        "url": "https://movies.disney.com/dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "parent_of",
+        "chr.dumbo"
+      ],
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "voiced_by",
+        "per.felton"
+      ],
+      [
+        "associated_with",
+        "mus.babymine"
+      ]
+    ]
+  },
+  {
+    "id": "chr.timothy",
+    "type": "Character",
+    "zh": "蒂莫西",
+    "name": "Timothy Q. Mouse",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "最好的朋友",
+      "经纪人",
+      "老鼠"
+    ],
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "马戏团里的小老鼠，Dumbo 最好的朋友，后来成了他的经纪人。其他大象排斥 Dumbo 时，他第一个站出来；他带 Dumbo 去见被关起来的妈妈，推断出 Dumbo 是用耳朵飞上树的，并在羽毛掉落时告诉他：羽毛从来没有魔法，会飞的是你自己。",
+    "facts": {
+      "首次登场": "Dumbo (1941)",
+      "配音": "Edward Brophy",
+      "与 Dumbo 的关系": "最好的朋友 / 经纪人",
+      "2019 版": "只以客串方式致敬"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Movies · Dumbo",
+        "url": "https://movies.disney.com/dumbo"
+      },
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "friend_of",
+        "chr.dumbo"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ],
+      [
+        "manager_of",
+        "chr.dumbo"
+      ],
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "appears_in",
+        "work.dumbo2019",
+        "客串致敬"
+      ],
+      [
+        "voiced_by",
+        "per.brophy"
+      ],
+      [
+        "associated_with",
+        "con.feather"
+      ]
+    ]
+  },
+  {
+    "id": "chr.stork",
+    "type": "Character",
+    "zh": "送子鹳先生",
+    "name": "Mr. Stork",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "开场"
+    ],
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "开场时为马戏团动物们送来宝宝的送子鹳之一，最后才把 Dumbo 送到珍宝太太身边。",
+    "facts": {
+      "配音": "Sterling Holloway",
+      "相关歌曲": "Look Out for Mr. Stork"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "delivers",
+        "chr.dumbo"
+      ],
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "voiced_by",
+        "per.holloway"
+      ]
+    ]
+  },
+  {
+    "id": "chr.ringmaster",
+    "type": "Character",
+    "zh": "马戏团团长",
+    "name": "The Ringmaster",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "马戏团的经营者。他把珍宝太太关了起来，又把 Dumbo 安排进“大象金字塔”，表演失败后让他去演小丑节目。",
+    "facts": {
+      "配音": "Herman Bing"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "voiced_by",
+        "per.bing"
+      ],
+      [
+        "related_to",
+        "chr.mrsjumbo",
+        "关押"
+      ]
+    ]
+  },
+  {
+    "id": "chr.matriarch",
+    "type": "Character",
+    "zh": "象群女族长",
+    "name": "Elephant Matriarch",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "马戏团象群的领头者。她带头嘲笑 Dumbo 的耳朵，珍宝太太被关后，象群也跟着孤立 Dumbo。",
+    "facts": {
+      "配音": "Verna Felton"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "mocks",
+        "chr.dumbo"
+      ],
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "voiced_by",
+        "per.felton"
+      ]
+    ]
+  },
+  {
+    "id": "chr.crows",
+    "type": "Character",
+    "zh": "乌鸦们",
+    "name": "The Crows",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "争议"
+    ],
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "先嘲笑、后帮忙的乌鸦群，把一根“魔法羽毛”交给 Dumbo，作为他起飞的信心支撑。领头乌鸦在制作资料中的名字取自种族隔离的 Jim Crow 法，这组角色的刻画如今被普遍视为种族刻板印象，Disney+ 已为影片加注内容提示。",
+    "facts": {
+      "领头乌鸦配音": "Cliff Edwards",
+      "相关歌曲": "When I See an Elephant Fly",
+      "动画": "Ward Kimball"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      },
+      {
+        "label": "The Walt Disney Company · Stories Matter",
+        "url": "https://storiesmatter.thewaltdisneycompany.com/"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ],
+      [
+        "voiced_by",
+        "per.edwards",
+        "领头乌鸦"
+      ],
+      [
+        "animated_by",
+        "per.kimball"
+      ],
+      [
+        "associated_with",
+        "con.feather"
+      ]
+    ]
+  },
+  {
+    "id": "chr.clowns",
+    "type": "Character",
+    "zh": "小丑们",
+    "name": "The Clowns",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "小丑表演里让 Dumbo 从“着火的高楼”上往下跳。Dumbo 后来正是在这个节目中，第一次在观众面前飞了起来。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ]
+    ]
+  },
+  {
+    "id": "chr.caseyjr",
+    "type": "Character",
+    "zh": "凯西小火车",
+    "name": "Casey Jr.",
+    "domains": [
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "火车"
+    ],
+    "continuity": [
+      "1941 动画",
+      "乐园"
+    ],
+    "summary": "载着马戏团巡演的拟人小火车，爬坡时会一边喘气一边念叨“I think I can”。",
+    "facts": {
+      "主题曲": "Casey Junior"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ]
+    ]
+  },
+  {
+    "id": "chr.holt",
+    "type": "Character",
+    "zh": "霍尔特·法瑞尔",
+    "name": "Holt Farrier",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "一战归来、失去一条手臂的马戏团前明星骑手，被安排照顾刚出生的 Dumbo。",
+    "facts": {
+      "饰演": "Colin Farrell"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ],
+      [
+        "parent_of",
+        "chr.milly"
+      ],
+      [
+        "parent_of",
+        "chr.joe"
+      ]
+    ]
+  },
+  {
+    "id": "chr.milly",
+    "type": "Character",
+    "zh": "米莉·法瑞尔",
+    "name": "Milly Farrier",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "Holt 的女儿，想成为科学家。她和弟弟最先发现，一根羽毛能让 Dumbo 飞起来。",
+    "facts": {
+      "饰演": "Nico Parker"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ],
+      [
+        "friend_of",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "chr.joe",
+    "type": "Character",
+    "zh": "乔·法瑞尔",
+    "name": "Joe Farrier",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "Milly 的弟弟，和姐姐一起照顾 Dumbo。",
+    "facts": {
+      "饰演": "Finley Hobbins"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "chr.medici",
+    "type": "Character",
+    "zh": "马克斯·梅迪奇",
+    "name": "Max Medici",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "Medici 兄弟马戏团的老板，买下了珍宝太太。",
+    "facts": {
+      "饰演": "Danny DeVito"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ]
+    ]
+  },
+  {
+    "id": "chr.vandevere",
+    "type": "Character",
+    "zh": "范德维尔",
+    "name": "V. A. Vandevere",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "娱乐大亨，把 Dumbo 和马戏团带到自己的 Dreamland 游乐园。",
+    "facts": {
+      "饰演": "Michael Keaton"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "associated_with",
+        "place.dreamland"
+      ]
+    ]
+  },
+  {
+    "id": "chr.colette",
+    "type": "Character",
+    "zh": "科莱特·马尔尚",
+    "name": "Colette Marchant",
+    "domains": [
+      "characters"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "法国空中飞人演员，在 Dreamland 与 Dumbo 搭档表演。",
+    "facts": {
+      "饰演": "Eva Green"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ],
+      [
+        "helps",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "work.dumbo1941",
+    "type": "Work",
+    "zh": "小飞象（1941）",
+    "short": "1941 动画电影",
+    "name": "Dumbo (1941)",
+    "domains": [
+      "origins",
+      "screen"
+    ],
+    "year": 1941,
+    "date": "1941-10-23",
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "动画长片"
+    ],
+    "continuity": [
+      "1941 动画"
+    ],
+    "summary": "迪士尼第 4 部动画长片，片长只有 64 分钟。在《木偶奇遇记》《幻想曲》票房受挫后以较低预算制作，制作后期恰逢 1941 年迪士尼动画师罢工。上映后成为公司当时急需的一部赚钱作品。",
+    "facts": {
+      "上映": "1941-10-23（美国）",
+      "发行": "RKO Radio Pictures",
+      "片长": "64 分钟",
+      "监督导演": "Ben Sharpsteen",
+      "故事": "Joe Grant、Dick Huemer",
+      "音乐": "Frank Churchill、Oliver Wallace",
+      "制作地": "加州 Burbank 迪士尼工作室"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Disney Movies · Dumbo",
+        "url": "https://movies.disney.com/dumbo"
+      },
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "geo": [
+      34.156,
+      -118.325,
+      "南加州",
+      "l"
+    ],
+    "rel": [
+      [
+        "based_on",
+        "pub.rollabook"
+      ],
+      [
+        "produced_by",
+        "per.walt"
+      ],
+      [
+        "directed_by",
+        "per.sharpsteen"
+      ],
+      [
+        "written_by",
+        "per.grant"
+      ],
+      [
+        "written_by",
+        "per.huemer"
+      ],
+      [
+        "composed_by",
+        "per.churchill"
+      ],
+      [
+        "composed_by",
+        "per.wallace"
+      ],
+      [
+        "won",
+        "award.oscar1942"
+      ],
+      [
+        "won",
+        "award.cannes1947"
+      ],
+      [
+        "uses_motif",
+        "con.feather"
+      ],
+      [
+        "uses_motif",
+        "con.pinkelephants"
+      ],
+      [
+        "uses_motif",
+        "des.watercolor"
+      ]
+    ]
+  },
+  {
+    "id": "pub.rollabook",
+    "type": "Publication",
+    "zh": "原作故事《Dumbo, the Flying Elephant》",
+    "short": "1939 原作故事",
+    "name": "Dumbo, the Flying Elephant (1939)",
+    "domains": [
+      "origins"
+    ],
+    "year": 1939,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "原作"
+    ],
+    "summary": "Helen Aberson 与 Harold Pearl 创作的短篇故事，原本是为一种叫“Roll-a-Book”的卷轴式读物写的，插画由 Helen Durney 绘制。迪士尼在 1939 年买下了改编权。",
+    "facts": {
+      "作者": "Helen Aberson、Harold Pearl",
+      "插画": "Helen Durney",
+      "形式": "Roll-a-Book 卷轴读物"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "written_by",
+        "per.aberson"
+      ],
+      [
+        "written_by",
+        "per.pearl"
+      ]
+    ]
+  },
+  {
+    "id": "per.aberson",
+    "type": "Person",
+    "zh": "海伦·阿伯森",
+    "name": "Helen Aberson",
+    "domains": [
+      "origins"
+    ],
+    "summary": "原作故事的作者之一。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.pearl",
+    "type": "Person",
+    "zh": "哈罗德·珀尔",
+    "name": "Harold Pearl",
+    "domains": [
+      "origins"
+    ],
+    "summary": "原作故事的作者之一，Helen Aberson 当时的丈夫。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.walt",
+    "type": "Person",
+    "zh": "华特·迪士尼",
+    "name": "Walt Disney",
+    "domains": [
+      "origins"
+    ],
+    "summary": "1941 版的制片人。",
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Movies · Dumbo",
+        "url": "https://movies.disney.com/dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.sharpsteen",
+    "type": "Person",
+    "zh": "本·夏普斯廷",
+    "name": "Ben Sharpsteen",
+    "domains": [
+      "origins"
+    ],
+    "summary": "1941 版的监督导演。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.tytla",
+    "type": "Person",
+    "zh": "比尔·泰特拉",
+    "name": "Bill Tytla",
+    "domains": [
+      "origins"
+    ],
+    "summary": "主导 Dumbo 角色动画的动画师。常见的说法是，他参考了自己年幼儿子的神态来画 Dumbo。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.kimball",
+    "type": "Person",
+    "zh": "沃德·金博尔",
+    "name": "Ward Kimball",
+    "domains": [
+      "origins"
+    ],
+    "summary": "负责乌鸦段落的动画师。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.grant",
+    "type": "Person",
+    "zh": "乔·格兰特",
+    "name": "Joe Grant",
+    "domains": [
+      "origins"
+    ],
+    "summary": "与 Dick Huemer 一起负责 1941 版的故事改编。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.huemer",
+    "type": "Person",
+    "zh": "迪克·休默",
+    "name": "Dick Huemer",
+    "domains": [
+      "origins"
+    ],
+    "summary": "与 Joe Grant 一起负责 1941 版的故事改编。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.churchill",
+    "type": "Person",
+    "zh": "弗兰克·丘吉尔",
+    "name": "Frank Churchill",
+    "domains": [
+      "origins"
+    ],
+    "summary": "作曲家，写了《Baby Mine》和《Casey Junior》，与 Oliver Wallace 共同获得奥斯卡配乐奖。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.wallace",
+    "type": "Person",
+    "zh": "奥利弗·华莱士",
+    "name": "Oliver Wallace",
+    "domains": [
+      "origins"
+    ],
+    "summary": "作曲家，写了《Pink Elephants on Parade》和《When I See an Elephant Fly》。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.washington",
+    "type": "Person",
+    "zh": "内德·华盛顿",
+    "name": "Ned Washington",
+    "domains": [
+      "origins"
+    ],
+    "summary": "1941 版歌曲的作词人。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.brophy",
+    "type": "Person",
+    "zh": "爱德华·布罗菲",
+    "name": "Edward Brophy",
+    "domains": [
+      "origins"
+    ],
+    "summary": "Timothy 的配音演员。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.felton",
+    "type": "Person",
+    "zh": "维尔娜·费尔顿",
+    "name": "Verna Felton",
+    "domains": [
+      "origins"
+    ],
+    "summary": "同时为珍宝太太和象群女族长配音。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.holloway",
+    "type": "Person",
+    "zh": "斯特林·霍洛威",
+    "name": "Sterling Holloway",
+    "domains": [
+      "origins"
+    ],
+    "summary": "送子鹳先生的配音演员。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.bing",
+    "type": "Person",
+    "zh": "赫尔曼·宾",
+    "name": "Herman Bing",
+    "domains": [
+      "origins"
+    ],
+    "summary": "马戏团团长的配音演员。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "per.edwards",
+    "type": "Person",
+    "zh": "克里夫·爱德华兹",
+    "name": "Cliff Edwards",
+    "domains": [
+      "origins"
+    ],
+    "summary": "领头乌鸦的配音，也是《When I See an Elephant Fly》的主唱。他同时是《木偶奇遇记》里吉米尼蟋蟀的声音。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "award.oscar1942",
+    "type": "Award",
+    "zh": "第 14 届奥斯卡金像奖",
+    "short": "1942 奥斯卡",
+    "name": "14th Academy Awards",
+    "domains": [
+      "origins"
+    ],
+    "year": 1942,
+    "date": "1942-02-26",
+    "region": [
+      "US"
+    ],
+    "summary": "1941 版获得最佳音乐片配乐奖（Frank Churchill、Oliver Wallace），《Baby Mine》获得最佳原创歌曲提名。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "related_to",
+        "per.churchill",
+        "获奖"
+      ],
+      [
+        "related_to",
+        "per.wallace",
+        "获奖"
+      ]
+    ]
+  },
+  {
+    "id": "award.cannes1947",
+    "type": "Award",
+    "zh": "1947 年戛纳电影节",
+    "short": "1947 戛纳",
+    "name": "1947 Cannes Film Festival",
+    "domains": [
+      "origins"
+    ],
+    "year": 1947,
+    "region": [
+      "FR"
+    ],
+    "summary": "1941 版获得最佳动画设计奖。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "mus.babymine",
+    "type": "Music",
+    "zh": "《Baby Mine》",
+    "name": "Baby Mine",
+    "domains": [
+      "origins"
+    ],
+    "year": 1941,
+    "tags": [
+      "摇篮曲"
+    ],
+    "summary": "珍宝太太隔着笼子摇着 Dumbo 时响起的摇篮曲，由 Betty Noyes 演唱。获得奥斯卡最佳原创歌曲提名，此后被许多歌手翻唱。",
+    "facts": {
+      "作曲": "Frank Churchill",
+      "作词": "Ned Washington",
+      "演唱": "Betty Noyes"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "song_in",
+        "work.dumbo1941"
+      ],
+      [
+        "composed_by",
+        "per.churchill"
+      ],
+      [
+        "lyrics_by",
+        "per.washington"
+      ],
+      [
+        "nominated_for",
+        "award.oscar1942"
+      ]
+    ]
+  },
+  {
+    "id": "mus.pinkparade",
+    "type": "Music",
+    "zh": "《Pink Elephants on Parade》",
+    "short": "Pink Elephants 歌曲",
+    "name": "Pink Elephants on Parade",
+    "domains": [
+      "origins"
+    ],
+    "year": 1941,
+    "summary": "粉红大象幻觉段落的歌曲。",
+    "facts": {
+      "作曲": "Oliver Wallace",
+      "作词": "Ned Washington"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "song_in",
+        "work.dumbo1941"
+      ],
+      [
+        "composed_by",
+        "per.wallace"
+      ],
+      [
+        "lyrics_by",
+        "per.washington"
+      ],
+      [
+        "associated_with",
+        "con.pinkelephants"
+      ]
+    ]
+  },
+  {
+    "id": "mus.elephantfly",
+    "type": "Music",
+    "zh": "《When I See an Elephant Fly》",
+    "short": "Elephant Fly 歌曲",
+    "name": "When I See an Elephant Fly",
+    "domains": [
+      "origins"
+    ],
+    "year": 1941,
+    "summary": "乌鸦们第一次见到 Dumbo 和 Timothy 时唱的歌，满是“大象怎么可能会飞”的双关语。",
+    "facts": {
+      "作曲": "Oliver Wallace",
+      "作词": "Ned Washington",
+      "主唱": "Cliff Edwards"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "song_in",
+        "work.dumbo1941"
+      ],
+      [
+        "composed_by",
+        "per.wallace"
+      ],
+      [
+        "lyrics_by",
+        "per.washington"
+      ],
+      [
+        "performed_by",
+        "per.edwards"
+      ],
+      [
+        "associated_with",
+        "chr.crows"
+      ]
+    ]
+  },
+  {
+    "id": "mus.caseyjr",
+    "type": "Music",
+    "zh": "《Casey Junior》",
+    "name": "Casey Junior",
+    "domains": [
+      "origins"
+    ],
+    "year": 1941,
+    "summary": "马戏团火车出发巡演时的歌。",
+    "facts": {
+      "作曲": "Frank Churchill",
+      "作词": "Ned Washington"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "song_in",
+        "work.dumbo1941"
+      ],
+      [
+        "composed_by",
+        "per.churchill"
+      ],
+      [
+        "lyrics_by",
+        "per.washington"
+      ],
+      [
+        "associated_with",
+        "chr.caseyjr"
+      ]
+    ]
+  },
+  {
+    "id": "con.feather",
+    "type": "Concept",
+    "zh": "魔法羽毛",
+    "name": "Magic Feather",
+    "domains": [
+      "origins",
+      "characters"
+    ],
+    "year": 1941,
+    "tags": [
+      "母题",
+      "自信"
+    ],
+    "summary": "乌鸦交给 Dumbo 的一根普通羽毛。Dumbo 以为握着它才能飞；表演中途羽毛掉了，Timothy 告诉他羽毛从来没有魔法。它是整个 IP 里关于自信的核心母题。",
+    "facts": {
+      "出处": "Dumbo (1941)",
+      "意义": "信心的“脚手架”",
+      "2019 版": "改写为羽毛让 Dumbo 起飞"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "appears_in",
+        "work.dumbo2019",
+        "形式改写"
+      ]
+    ]
+  },
+  {
+    "id": "con.pinkelephants",
+    "type": "Concept",
+    "zh": "粉红大象游行",
+    "short": "粉红大象",
+    "name": "Pink Elephants on Parade (sequence)",
+    "domains": [
+      "design",
+      "origins",
+      "culture"
+    ],
+    "year": 1941,
+    "tags": [
+      "母题",
+      "超现实"
+    ],
+    "summary": "Dumbo 和 Timothy 误喝了掺香槟的水后看到的幻觉段落，画风超现实，几乎脱离了全片的风格。“看见粉红大象”本来是早于这部电影的英文醉酒俚语。这一段后来常被用在商品、徽章和服饰图案上。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ]
+    ]
+  },
+  {
+    "id": "des.ears",
+    "type": "Concept",
+    "zh": "大耳朵",
+    "name": "The Ears",
+    "domains": [
+      "design"
+    ],
+    "tags": [
+      "造型"
+    ],
+    "summary": "Dumbo 被嘲笑的原因，也是他飞行的工具。在商品和乐园象车的造型里，耳朵几乎总是被夸张得最厉害的部位。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "des.hatcollar",
+    "type": "Concept",
+    "zh": "小帽与领圈",
+    "name": "Hat & Collar",
+    "domains": [
+      "design"
+    ],
+    "tags": [
+      "造型"
+    ],
+    "summary": "黄色小帽和领圈是 Dumbo 毛绒与周边里最常见的配件组合，辨识度很高。",
+    "status": "secondary",
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "des.watercolor",
+    "type": "Artwork",
+    "zh": "水彩背景",
+    "name": "Watercolor backgrounds",
+    "domains": [
+      "design",
+      "origins"
+    ],
+    "year": 1941,
+    "tags": [
+      "美术"
+    ],
+    "summary": "1941 版的背景用水彩绘制，画面柔和通透。2002 年的《星际宝贝》常被拿来与它比较，因为它是迪士尼后来少数重新采用水彩背景的长片。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo",
+        "url": "https://en.wikipedia.org/wiki/Dumbo"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "work.dumbo2019",
+    "type": "Work",
+    "zh": "小飞象（2019 真人版）",
+    "short": "2019 真人电影",
+    "name": "Dumbo (2019)",
+    "domains": [
+      "screen"
+    ],
+    "year": 2019,
+    "date": "2019-03-29",
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "真人电影",
+      "重拍"
+    ],
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "蒂姆·波顿执导的真人加 CG 重拍版。故事重心转向照顾 Dumbo 的 Farrier 一家和 Dreamland 游乐园；动物不再说话，Timothy 只以客串方式致敬。",
+    "facts": {
+      "上映": "2019-03-29（美国）",
+      "导演": "Tim Burton",
+      "编剧": "Ehren Kruger",
+      "配乐": "Danny Elfman",
+      "主演": "Colin Farrell、Michael Keaton、Danny DeVito、Eva Green"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "adaptation_of",
+        "work.dumbo1941"
+      ],
+      [
+        "directed_by",
+        "per.burton"
+      ]
+    ]
+  },
+  {
+    "id": "per.burton",
+    "type": "Person",
+    "zh": "蒂姆·波顿",
+    "name": "Tim Burton",
+    "domains": [
+      "screen"
+    ],
+    "summary": "2019 真人版的导演。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "place.dreamland",
+    "type": "Place",
+    "zh": "Dreamland 游乐园",
+    "short": "Dreamland",
+    "name": "Dreamland",
+    "domains": [
+      "screen"
+    ],
+    "year": 2019,
+    "continuity": [
+      "2019 真人"
+    ],
+    "summary": "2019 版中 V. A. Vandevere 经营的大型游乐园，Dumbo 被带到这里当招牌。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo2019"
+      ]
+    ]
+  },
+  {
+    "id": "work.dumboscircus",
+    "type": "Work",
+    "zh": "《Dumbo's Circus》电视剧",
+    "short": "Dumbo's Circus",
+    "name": "Dumbo's Circus",
+    "domains": [
+      "screen"
+    ],
+    "year": 1985,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "电视",
+      "布偶"
+    ],
+    "continuity": [
+      "电视"
+    ],
+    "summary": "Disney Channel 播出的真人布偶儿童节目，Dumbo 和一群动物伙伴组成巡回马戏团。",
+    "facts": {
+      "播出": "1985–1986",
+      "频道": "Disney Channel",
+      "形式": "真人布偶"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo's Circus",
+        "url": "https://en.wikipedia.org/wiki/Dumbo%27s_Circus"
+      }
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "work.rogerrabbit",
+    "type": "Work",
+    "zh": "《谁陷害了兔子罗杰》",
+    "short": "兔子罗杰",
+    "name": "Who Framed Roger Rabbit (1988)",
+    "domains": [
+      "screen"
+    ],
+    "year": 1988,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "客串"
+    ],
+    "summary": "片中 Dumbo 有一段客串镜头，被设定为从迪士尼“借来”的明星。",
+    "status": "secondary",
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo",
+        "客串"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "work.houseofmouse",
+    "type": "Work",
+    "zh": "《House of Mouse》",
+    "name": "House of Mouse (2001–2003)",
+    "domains": [
+      "screen"
+    ],
+    "year": 2001,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "电视",
+      "客串"
+    ],
+    "summary": "迪士尼经典角色云集的电视动画，Dumbo 以宾客身份出现在俱乐部场景中。",
+    "status": "secondary",
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo",
+        "客串"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "work.kingdomhearts",
+    "type": "Work",
+    "zh": "《王国之心》",
+    "name": "Kingdom Hearts (2002)",
+    "domains": [
+      "screen"
+    ],
+    "year": 2002,
+    "region": [
+      "JP",
+      "US"
+    ],
+    "tags": [
+      "游戏"
+    ],
+    "summary": "Square 与迪士尼合作的游戏，Dumbo 是可以召唤的伙伴之一，会用鼻子喷水攻击。",
+    "status": "secondary",
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo",
+        "召唤伙伴"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "work.dumbo2",
+    "type": "Work",
+    "zh": "《小飞象 2》（已取消）",
+    "short": "小飞象 2（取消）",
+    "name": "Dumbo II (cancelled)",
+    "domains": [
+      "screen"
+    ],
+    "year": 2001,
+    "tags": [
+      "未完成"
+    ],
+    "summary": "2000 年代初筹备的直接发行录像带续集，2006 年迪士尼动画管理层调整后被取消，没有面世。",
+    "status": "secondary",
+    "rel": [
+      [
+        "sequel_of",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "med.dvd60",
+    "type": "Media",
+    "zh": "60 周年纪念版 DVD",
+    "short": "60 周年 DVD",
+    "name": "Dumbo 60th Anniversary Edition (DVD)",
+    "domains": [
+      "screen",
+      "events"
+    ],
+    "year": 2001,
+    "date": "2001-10-23",
+    "region": [
+      "US"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "家庭影音"
+    ],
+    "summary": "在上映 60 周年当天发行的 DVD 版本。",
+    "status": "secondary",
+    "rel": [
+      [
+        "edition_of",
+        "work.dumbo1941"
+      ],
+      [
+        "released_for",
+        "ann.60"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "med.bd70",
+    "type": "Media",
+    "zh": "70 周年纪念版蓝光",
+    "short": "70 周年蓝光",
+    "name": "Dumbo 70th Anniversary Edition (Blu-ray)",
+    "domains": [
+      "screen",
+      "events"
+    ],
+    "year": 2011,
+    "date": "2011-09-20",
+    "region": [
+      "US"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "家庭影音"
+    ],
+    "summary": "1941 版的首个蓝光版本，为 70 周年推出。",
+    "status": "secondary",
+    "rel": [
+      [
+        "edition_of",
+        "work.dumbo1941"
+      ],
+      [
+        "released_for",
+        "ann.70"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "med.disneyplus",
+    "type": "Media",
+    "zh": "Disney+ 上线",
+    "short": "Disney+",
+    "name": "Dumbo on Disney+",
+    "domains": [
+      "screen"
+    ],
+    "year": 2019,
+    "date": "2019-11-12",
+    "region": [
+      "GLOBAL"
+    ],
+    "tags": [
+      "流媒体"
+    ],
+    "summary": "Disney+ 在美国上线首日就收录了 1941 版，并附有关于过时文化刻画的提示。",
+    "status": "secondary",
+    "rel": [
+      [
+        "edition_of",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "attr.dl",
+    "type": "Attraction",
+    "zh": "Dumbo the Flying Elephant · 加州",
+    "short": "飞象 · 加州",
+    "name": "Dumbo the Flying Elephant (Disneyland)",
+    "domains": [
+      "parks"
+    ],
+    "year": 1955,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "最早的一座 Dumbo 旋转飞象：乘客坐在 Dumbo 身上绕着中心转，可以自己控制升降。之后世界各地的迪士尼乐园都建了自己的版本。",
+    "facts": {
+      "园区": "Disneyland Park · Fantasyland",
+      "开放": "1955 年（开园首年）",
+      "改造": "1983 年随 Fantasyland 改造重建",
+      "轶事": "据说最初曾考虑把座舱做成粉红大象"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      33.8121,
+      -117.919,
+      "南加州",
+      "l"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "attr.mk",
+    "type": "Attraction",
+    "zh": "Dumbo the Flying Elephant · 奥兰多",
+    "short": "飞象 · 奥兰多",
+    "name": "Dumbo the Flying Elephant (Magic Kingdom)",
+    "domains": [
+      "parks"
+    ],
+    "year": 1971,
+    "date": "1971-10-01",
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "华特迪士尼世界 Magic Kingdom 开园当天就有的飞象。2012 年搬到 Storybook Circus 区域，改成两座转盘，还加了室内候场的马戏帐篷。",
+    "facts": {
+      "园区": "Magic Kingdom · Fantasyland（Storybook Circus）",
+      "开放": "1971-10-01（开园当日）",
+      "改造": "2012 年迁址，改为双转盘"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      28.4199,
+      -81.5812,
+      "奥兰多",
+      "r"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "version_of",
+        "attr.dl"
+      ]
+    ]
+  },
+  {
+    "id": "attr.tdl",
+    "type": "Attraction",
+    "zh": "空飛ぶダンボ · 东京",
+    "short": "飞象 · 东京",
+    "name": "Dumbo the Flying Elephant (Tokyo Disneyland)",
+    "domains": [
+      "parks"
+    ],
+    "year": 1983,
+    "date": "1983-04-15",
+    "region": [
+      "JP"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "东京迪士尼乐园开园当天就有的飞象，日文名“空飛ぶダンボ”。",
+    "facts": {
+      "园区": "Tokyo Disneyland · Fantasyland",
+      "开放": "1983-04-15（开园当日）"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      35.6329,
+      139.8804,
+      "东京",
+      "r"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "version_of",
+        "attr.dl"
+      ]
+    ]
+  },
+  {
+    "id": "attr.dlp",
+    "type": "Attraction",
+    "zh": "Dumbo the Flying Elephant · 巴黎",
+    "short": "飞象 · 巴黎",
+    "name": "Dumbo the Flying Elephant (Disneyland Paris)",
+    "domains": [
+      "parks"
+    ],
+    "year": 1992,
+    "date": "1992-04-12",
+    "region": [
+      "FR"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "巴黎迪士尼乐园开园当天就有的飞象。",
+    "facts": {
+      "园区": "Disneyland Park (Paris) · Fantasyland",
+      "开放": "1992-04-12（开园当日）"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      48.8722,
+      2.7758,
+      "巴黎",
+      "t"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "version_of",
+        "attr.dl"
+      ]
+    ]
+  },
+  {
+    "id": "attr.hkdl",
+    "type": "Attraction",
+    "zh": "小飛象旋轉世界 · 香港",
+    "short": "飞象 · 香港",
+    "name": "Dumbo the Flying Elephant (Hong Kong Disneyland)",
+    "domains": [
+      "parks"
+    ],
+    "year": 2005,
+    "date": "2005-09-12",
+    "region": [
+      "HK"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "香港迪士尼乐园开园当天就有的飞象，中文名“小飛象旋轉世界”。",
+    "facts": {
+      "园区": "Hong Kong Disneyland · Fantasyland",
+      "开放": "2005-09-12（开园当日）"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      22.313,
+      114.0413,
+      "香港",
+      "b"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "version_of",
+        "attr.dl"
+      ]
+    ]
+  },
+  {
+    "id": "attr.shdl",
+    "type": "Attraction",
+    "zh": "小飞象 · 上海",
+    "short": "飞象 · 上海",
+    "name": "Dumbo the Flying Elephant (Shanghai Disneyland)",
+    "domains": [
+      "parks"
+    ],
+    "year": 2016,
+    "date": "2016-06-16",
+    "region": [
+      "CN"
+    ],
+    "tags": [
+      "旋转飞象"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "位于上海迪士尼乐园奇想花园，开园当天就开放。",
+    "facts": {
+      "园区": "Shanghai Disneyland · 奇想花园 Gardens of Imagination",
+      "开放": "2016-06-16（开园当日）"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo the Flying Elephant",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_the_Flying_Elephant"
+      }
+    ],
+    "geo": [
+      31.144,
+      121.657,
+      "上海",
+      "l"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "version_of",
+        "attr.dl"
+      ]
+    ]
+  },
+  {
+    "id": "attr.caseyjr",
+    "type": "Attraction",
+    "zh": "凯西小火车 · 加州",
+    "short": "凯西小火车",
+    "name": "Casey Jr. Circus Train (Disneyland)",
+    "domains": [
+      "parks"
+    ],
+    "year": 1955,
+    "region": [
+      "US"
+    ],
+    "continuity": [
+      "乐园"
+    ],
+    "summary": "以电影里的马戏团火车为原型的小火车，绕行 Storybook Land 的微缩童话场景。",
+    "status": "secondary",
+    "geo": [
+      33.8121,
+      -117.919,
+      "南加州",
+      "l"
+    ],
+    "rel": [
+      [
+        "depicts",
+        "chr.caseyjr"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "evt.d23_2026",
+    "type": "Event",
+    "zh": "D23 粉丝大会 2026",
+    "short": "D23 2026",
+    "name": "D23: The Ultimate Disney Fan Event 2026",
+    "domains": [
+      "events"
+    ],
+    "year": 2026,
+    "date": "2026-08-14",
+    "end": "2026-08-16",
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "D23",
+      "85周年"
+    ],
+    "summary": "在阿纳海姆会议中心举办的迪士尼官方粉丝大会。会场 D23 Marketplace 推出了多个周年纪念系列，其中包括 Dumbo 85 周年系列；8 月 17 日起在 DisneyStore.com 线上发售。",
+    "facts": {
+      "日期": "2026-08-14 → 08-16",
+      "地点": "Anaheim Convention Center",
+      "线上发售": "2026-08-17 8:00（太平洋时间）"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Parks Blog · Now Live on Disney Store: D23 2026 Products",
+        "url": "https://disneyparksblog.com/products/now-live-on-disney-store-d23-2026-products/"
+      },
+      {
+        "label": "WDWInfo · 9 More Disney Anniversary Collections Revealed for D23 2026",
+        "url": "https://www.wdwinfo.com/news-stories/disney/9-more-disney-anniversary-collections-revealed-for-d23-2026/"
+      }
+    ],
+    "geo": [
+      33.8003,
+      -117.9197,
+      "南加州",
+      "l"
+    ],
+    "rel": []
+  },
+  {
+    "id": "ann.50",
+    "type": "Anniversary",
+    "zh": "50 周年",
+    "name": "50th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 1991,
+    "date": "1991-10-23",
+    "summary": "1941 年 10 月 23 日上映后的第 50 年。相关商品与活动待收录。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "ann.60",
+    "type": "Anniversary",
+    "zh": "60 周年",
+    "name": "60th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 2001,
+    "date": "2001-10-23",
+    "summary": "60 周年纪念版 DVD 在这一天发行。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "ann.70",
+    "type": "Anniversary",
+    "zh": "70 周年",
+    "name": "70th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 2011,
+    "date": "2011-10-23",
+    "summary": "70 周年纪念版蓝光在这一年 9 月发行。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "ann.75",
+    "type": "Anniversary",
+    "zh": "75 周年",
+    "name": "75th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 2016,
+    "date": "2016-10-23",
+    "summary": "相关商品与活动待收录。同年上海迪士尼乐园开园，园内有小飞象。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "ann.80",
+    "type": "Anniversary",
+    "zh": "80 周年",
+    "name": "80th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 2021,
+    "date": "2021-10-23",
+    "summary": "相关商品与活动待收录。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "ann.85",
+    "type": "Anniversary",
+    "zh": "85 周年",
+    "name": "85th Anniversary",
+    "domains": [
+      "events"
+    ],
+    "year": 2026,
+    "date": "2026-10-23",
+    "tags": [
+      "85周年"
+    ],
+    "summary": "2026 年是 85 周年。日本 Can Do 在 4 月推出 25 件周年商品，D23 2026 推出 Dumbo 85 周年系列。纪念日是 2026 年 10 月 23 日。",
+    "status": "secondary",
+    "rel": [
+      [
+        "celebrates",
+        "work.dumbo1941"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "col.d23_85",
+    "type": "Collection",
+    "zh": "Dumbo 85 周年系列（D23）",
+    "short": "D23 85周年系列",
+    "name": "Dumbo 85th Anniversary Collection",
+    "domains": [
+      "collections",
+      "merch",
+      "events"
+    ],
+    "year": 2026,
+    "date": "2026-08-14",
+    "region": [
+      "US"
+    ],
+    "edition": [
+      "anniversary",
+      "event"
+    ],
+    "tags": [
+      "85周年",
+      "D23"
+    ],
+    "summary": "在 D23 2026 会场的 D23 Marketplace 首发，8 月 17 日起在 DisneyStore.com 上线。目前确认的单品有 17 英寸的 Dumbo 与 Timothy 毛绒。",
+    "facts": {
+      "首发": "D23 Marketplace，2026-08-14",
+      "线上": "DisneyStore.com，2026-08-17",
+      "已收录单品": "1"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Parks Blog · Now Live on Disney Store: D23 2026 Products",
+        "url": "https://disneyparksblog.com/products/now-live-on-disney-store-d23-2026-products/"
+      },
+      {
+        "label": "Laughing Place · D23 2026 Merchandise Roundup",
+        "url": "https://www.laughingplace.com/disney-merchandise/d23-2026-complete-merchandise-roundup/"
+      }
+    ],
+    "rel": [
+      [
+        "featured_at",
+        "evt.d23_2026"
+      ],
+      [
+        "released_for",
+        "ann.85"
+      ],
+      [
+        "sold_by",
+        "ret.disneystore"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "depicts",
+        "chr.timothy"
+      ]
+    ]
+  },
+  {
+    "id": "mer.d23_plush",
+    "type": "Merchandise",
+    "zh": "Dumbo 与 Timothy 毛绒 · 85 周年",
+    "short": "D23 85周年毛绒",
+    "name": "Dumbo and Timothy Mouse Plush – 85th Anniversary – Disney Vault – Large 17''",
+    "domains": [
+      "merch"
+    ],
+    "year": 2026,
+    "date": "2026-08-14",
+    "region": [
+      "US"
+    ],
+    "edition": [
+      "anniversary",
+      "event"
+    ],
+    "tags": [
+      "毛绒",
+      "85周年",
+      "D23",
+      "Disney Vault"
+    ],
+    "summary": "D23 2026 的 Dumbo 85 周年系列单品，Dumbo 和 Timothy 在同一件毛绒上，属于 Disney Vault 产品线。",
+    "facts": {
+      "品类": "毛绒 Plush",
+      "尺寸": "17 英寸（Large）",
+      "产品线": "Disney Vault",
+      "渠道": "D23 Marketplace / DisneyStore.com",
+      "价格": "未记录"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Laughing Place · D23 2026 Merchandise Roundup",
+        "url": "https://www.laughingplace.com/disney-merchandise/d23-2026-complete-merchandise-roundup/"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.d23_85"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "depicts",
+        "chr.timothy"
+      ],
+      [
+        "released_for",
+        "ann.85"
+      ],
+      [
+        "sold_by",
+        "ret.disneystore"
+      ],
+      [
+        "featured_at",
+        "evt.d23_2026"
+      ]
+    ]
+  },
+  {
+    "id": "col.cando85",
+    "type": "Collection",
+    "zh": "Can Do × Dumbo 85 周年",
+    "short": "Can Do 85周年",
+    "name": "ダンボ 85周年 × キャンドゥ",
+    "domains": [
+      "collections",
+      "merch"
+    ],
+    "year": 2026,
+    "date": "2026-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "85周年",
+      "百元店"
+    ],
+    "summary": "日本百元店 Can Do 推出的 Dumbo 85 周年系列，共 25 件，¥110 到 ¥330（含税）。粉蓝色调，画面里有 Dumbo、Timothy 和珍宝太太，部分商品是盲盒。",
+    "facts": {
+      "发售": "2026-04-23",
+      "件数": "25",
+      "价格": "¥110–¥330（含税）",
+      "渠道": "Can Do 全国门店（部分除外）与官方网店",
+      "品类": "贴纸、圆珠笔、便签、文件夹、登山扣、钥匙扣、收纳包、迷你包、束口袋"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "ベストカレンダー · キャンドゥ「ダンボ」85周年アイテム",
+        "url": "https://bestcalendar.jp/press/124398"
+      }
+    ],
+    "rel": [
+      [
+        "sold_by",
+        "ret.cando"
+      ],
+      [
+        "released_for",
+        "ann.85"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "depicts",
+        "chr.timothy"
+      ],
+      [
+        "depicts",
+        "chr.mrsjumbo"
+      ]
+    ]
+  },
+  {
+    "id": "mer.cando_minibag",
+    "type": "Merchandise",
+    "zh": "85 周年迷你包（盲盒）",
+    "short": "Can Do 迷你包",
+    "name": "Dumbo 85th Mini Bag (blind)",
+    "domains": [
+      "merch"
+    ],
+    "year": 2026,
+    "date": "2026-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "anniversary",
+      "blind"
+    ],
+    "tags": [
+      "包袋",
+      "盲盒",
+      "85周年"
+    ],
+    "summary": "Can Do 85 周年系列中的盲盒迷你包，图案随机。",
+    "facts": {
+      "品类": "包袋",
+      "价格": "¥220（含税）",
+      "形式": "盲盒"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "ベストカレンダー · キャンドゥ「ダンボ」85周年アイテム",
+        "url": "https://bestcalendar.jp/press/124398"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.cando85"
+      ],
+      [
+        "sold_by",
+        "ret.cando"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "mer.cando_carabiner",
+    "type": "Merchandise",
+    "zh": "85 周年亚克力登山扣",
+    "short": "Can Do 登山扣",
+    "name": "Dumbo 85th Acrylic Carabiner",
+    "domains": [
+      "merch"
+    ],
+    "year": 2026,
+    "date": "2026-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "挂件",
+      "85周年"
+    ],
+    "summary": "Can Do 85 周年系列中的亚克力登山扣。",
+    "facts": {
+      "品类": "挂件",
+      "价格": "¥220（含税）"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "ベストカレンダー · キャンドゥ「ダンボ」85周年アイテム",
+        "url": "https://bestcalendar.jp/press/124398"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.cando85"
+      ],
+      [
+        "sold_by",
+        "ret.cando"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "mer.cando_pouch",
+    "type": "Merchandise",
+    "zh": "85 周年方形透明收纳包",
+    "short": "Can Do 收纳包",
+    "name": "Dumbo 85th Square Clear Pouch",
+    "domains": [
+      "merch"
+    ],
+    "year": 2026,
+    "date": "2026-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "收纳包",
+      "85周年"
+    ],
+    "summary": "Can Do 85 周年系列中价格最高的一档。",
+    "facts": {
+      "品类": "收纳包",
+      "价格": "¥330（含税）"
+    },
+    "status": "official",
+    "source": [
+      {
+        "label": "ベストカレンダー · キャンドゥ「ダンボ」85周年アイテム",
+        "url": "https://bestcalendar.jp/press/124398"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.cando85"
+      ],
+      [
+        "sold_by",
+        "ret.cando"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "col.dsj_echi",
+    "type": "Collection",
+    "zh": "Dumbo & Timothy 插画系列（えちがわのりゆき）",
+    "short": "えちがわ 插画系列",
+    "name": "Disney Store Japan × Echigawa Noriyuki",
+    "domains": [
+      "collections",
+      "merch"
+    ],
+    "year": 2024,
+    "date": "2024-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "collab"
+    ],
+    "tags": [
+      "艺术家合作",
+      "Disney Store Japan"
+    ],
+    "summary": "日本 Disney Store 采用漫画家、绘本作家えちがわのりゆき画的 Dumbo 与 Timothy 插画推出的系列，画风柔和。部分门店 4 月 19 日先行发售，4 月 23 日正式发售。",
+    "facts": {
+      "发售": "2024-04-23（部分门店 04-19 先行）",
+      "品类": "毛绒、毛绒挂件、收纳包、托特包、束口袋、环保袋、化妆包、凉感毯、笔袋",
+      "价格": "约 ¥1,600–¥5,000"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "トラベル Watch · ディズニーストア ダンボ新コレクション",
+        "url": "https://travel.watch.impress.co.jp/docs/news/1584571.html"
+      },
+      {
+        "label": "クランクイン！トレンド · ダンボとティモシーの新コレクション",
+        "url": "https://www.crank-in.net/trend/item/144876/1"
+      }
+    ],
+    "rel": [
+      [
+        "sold_by",
+        "ret.dsj"
+      ],
+      [
+        "illustrated_by",
+        "per.echigawa"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "depicts",
+        "chr.timothy"
+      ]
+    ]
+  },
+  {
+    "id": "per.echigawa",
+    "type": "Person",
+    "zh": "えちがわのりゆき",
+    "name": "Echigawa Noriyuki",
+    "domains": [
+      "collections"
+    ],
+    "region": [
+      "JP"
+    ],
+    "summary": "日本漫画家、绘本作家，为 2024 年日本 Disney Store 的 Dumbo 系列画了插画。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "トラベル Watch · ディズニーストア ダンボ新コレクション",
+        "url": "https://travel.watch.impress.co.jp/docs/news/1584571.html"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "mer.echi_plush",
+    "type": "Merchandise",
+    "zh": "Dumbo 毛绒（えちがわ 插画系列）",
+    "short": "えちがわ 毛绒",
+    "name": "Dumbo Plush (Echigawa collection)",
+    "domains": [
+      "merch"
+    ],
+    "year": 2024,
+    "date": "2024-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "collab"
+    ],
+    "tags": [
+      "毛绒"
+    ],
+    "summary": "插画系列中的毛绒，按插画里的柔和表情制作。",
+    "facts": {
+      "品类": "毛绒",
+      "价格": "未记录"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "トラベル Watch · ディズニーストア ダンボ新コレクション",
+        "url": "https://travel.watch.impress.co.jp/docs/news/1584571.html"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.dsj_echi"
+      ],
+      [
+        "sold_by",
+        "ret.dsj"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "mer.echi_ecobag",
+    "type": "Merchandise",
+    "zh": "环保袋（えちがわ 插画系列）",
+    "short": "えちがわ 环保袋",
+    "name": "Eco Bag (Echigawa collection)",
+    "domains": [
+      "merch"
+    ],
+    "year": 2024,
+    "date": "2024-04-23",
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "collab"
+    ],
+    "tags": [
+      "包袋"
+    ],
+    "summary": "插画系列里价格最低的一档。",
+    "facts": {
+      "品类": "包袋",
+      "价格": "¥1,600"
+    },
+    "status": "secondary",
+    "source": [
+      {
+        "label": "トラベル Watch · ディズニーストア ダンボ新コレクション",
+        "url": "https://travel.watch.impress.co.jp/docs/news/1584571.html"
+      }
+    ],
+    "rel": [
+      [
+        "part_of_collection",
+        "col.dsj_echi"
+      ],
+      [
+        "sold_by",
+        "ret.dsj"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ],
+      [
+        "depicts",
+        "chr.timothy"
+      ]
+    ]
+  },
+  {
+    "id": "col.dsj_85",
+    "type": "Collection",
+    "zh": "Disney Store Japan · Dumbo 85 周年系列",
+    "short": "DSJ 85周年系列",
+    "name": "Dumbo 85th Anniversary (Disney Store Japan)",
+    "domains": [
+      "collections",
+      "merch"
+    ],
+    "year": 2026,
+    "region": [
+      "JP"
+    ],
+    "edition": [
+      "anniversary"
+    ],
+    "tags": [
+      "85周年",
+      "Disney Store Japan"
+    ],
+    "summary": "你之前的笔记里记录了大约 17 件日本 Disney Store 的 85 周年商品。这里先建好系列节点，单品和官方来源待补充。",
+    "status": "collector-reported",
+    "source": [],
+    "rel": [
+      [
+        "sold_by",
+        "ret.dsj"
+      ],
+      [
+        "released_for",
+        "ann.85"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
+  },
+  {
+    "id": "ret.disneystore",
+    "type": "Retailer",
+    "zh": "Disney Store（美国）",
+    "short": "Disney Store",
+    "name": "Disney Store / DisneyStore.com",
+    "domains": [
+      "merch",
+      "world"
+    ],
+    "region": [
+      "US"
+    ],
+    "summary": "迪士尼官方零售渠道，D23 活动商品会在会后上线。",
+    "status": "official",
+    "source": [
+      {
+        "label": "Disney Parks Blog · Now Live on Disney Store: D23 2026 Products",
+        "url": "https://disneyparksblog.com/products/now-live-on-disney-store-d23-2026-products/"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "ret.dsj",
+    "type": "Retailer",
+    "zh": "ディズニーストア（日本）",
+    "short": "Disney Store Japan",
+    "name": "Disney Store Japan",
+    "domains": [
+      "merch",
+      "world"
+    ],
+    "region": [
+      "JP"
+    ],
+    "summary": "日本的迪士尼官方门店与网店，经常推出日本独有的插画系列和周年系列。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "トラベル Watch · ディズニーストア ダンボ新コレクション",
+        "url": "https://travel.watch.impress.co.jp/docs/news/1584571.html"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "ret.cando",
+    "type": "Retailer",
+    "zh": "Can Do（キャンドゥ）",
+    "short": "Can Do",
+    "name": "Can Do",
+    "domains": [
+      "merch",
+      "world"
+    ],
+    "region": [
+      "JP"
+    ],
+    "summary": "日本百元店连锁，常有迪士尼授权的小件商品。",
+    "status": "official",
+    "source": [
+      {
+        "label": "ベストカレンダー · キャンドゥ「ダンボ」85周年アイテム",
+        "url": "https://bestcalendar.jp/press/124398"
+      }
+    ],
+    "rel": []
+  },
+  {
+    "id": "reg.us",
+    "type": "Region",
+    "code": "US",
+    "zh": "美国",
+    "name": "United States",
+    "domains": [
+      "world"
+    ],
+    "summary": "1941 版的诞生地，也是 Disneyland、华特迪士尼世界和 D23 的所在地。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "reg.jp",
+    "type": "Region",
+    "code": "JP",
+    "zh": "日本",
+    "name": "Japan",
+    "domains": [
+      "world"
+    ],
+    "summary": "东京迪士尼度假区、日本 Disney Store，以及 Can Do 等授权零售渠道。日本的地区限定和插画系列特别多。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "reg.cn",
+    "type": "Region",
+    "code": "CN",
+    "zh": "中国大陆",
+    "name": "Mainland China",
+    "domains": [
+      "world"
+    ],
+    "summary": "上海迪士尼乐园（2016）。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "reg.hk",
+    "type": "Region",
+    "code": "HK",
+    "zh": "中国香港",
+    "name": "Hong Kong",
+    "domains": [
+      "world"
+    ],
+    "summary": "香港迪士尼乐园（2005）。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "reg.fr",
+    "type": "Region",
+    "code": "FR",
+    "zh": "法国",
+    "name": "France",
+    "domains": [
+      "world"
+    ],
+    "summary": "巴黎迪士尼乐园（1992），以及 1947 年的戛纳电影节获奖。",
+    "status": "secondary",
+    "rel": [],
+    "source": []
+  },
+  {
+    "id": "cul.time",
+    "type": "CulturalArtifact",
+    "zh": "《时代》“年度哺乳动物”封面（未刊）",
+    "short": "《时代》未刊封面",
+    "name": "Time “Mammal of the Year” cover (unpublished)",
+    "domains": [
+      "culture"
+    ],
+    "year": 1941,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "杂志"
+    ],
+    "summary": "流传很广的说法：《时代》杂志曾计划在 1941 年 12 月让 Dumbo 以“年度哺乳动物”登上封面，后来因为珍珠港事件撤下。",
+    "status": "secondary",
+    "rel": [
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "cul.storiesmatter",
+    "type": "CulturalArtifact",
+    "zh": "Stories Matter 内容提示",
+    "short": "Stories Matter",
+    "name": "Stories Matter advisory",
+    "domains": [
+      "culture",
+      "screen"
+    ],
+    "year": 2020,
+    "region": [
+      "GLOBAL"
+    ],
+    "tags": [
+      "争议"
+    ],
+    "summary": "Disney+ 从 2020 年 10 月起为部分经典影片加上 Stories Matter 提示，说明片中有对族群的负面刻画。1941 版因为乌鸦段落在列。",
+    "status": "official",
+    "source": [
+      {
+        "label": "The Walt Disney Company · Stories Matter",
+        "url": "https://storiesmatter.thewaltdisneycompany.com/"
+      }
+    ],
+    "rel": [
+      [
+        "references",
+        "work.dumbo1941"
+      ],
+      [
+        "references",
+        "chr.crows"
+      ],
+      [
+        "related_to",
+        "med.disneyplus"
+      ]
+    ]
+  },
+  {
+    "id": "mus.stayawake",
+    "type": "Music",
+    "zh": "《Stay Awake》里的 Baby Mine",
+    "short": "Stay Awake 翻唱",
+    "name": "Baby Mine — Bonnie Raitt & Was (Not Was), Stay Awake (1988)",
+    "domains": [
+      "culture"
+    ],
+    "year": 1988,
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "翻唱"
+    ],
+    "summary": "Hal Willner 制作的迪士尼电影歌曲致敬专辑《Stay Awake》中，Bonnie Raitt 与 Was (Not Was) 翻唱了《Baby Mine》。",
+    "status": "secondary",
+    "rel": [
+      [
+        "version_of",
+        "mus.babymine"
+      ]
+    ],
+    "source": []
+  },
+  {
+    "id": "mus.arcadefire",
+    "type": "Music",
+    "zh": "Arcade Fire 版《Baby Mine》",
+    "short": "Arcade Fire 翻唱",
+    "name": "Baby Mine — Arcade Fire (2019)",
+    "domains": [
+      "culture",
+      "screen"
+    ],
+    "year": 2019,
+    "tags": [
+      "翻唱"
+    ],
+    "summary": "为 2019 真人版录制的《Baby Mine》，用在片尾。",
+    "status": "secondary",
+    "source": [
+      {
+        "label": "Wikipedia · Dumbo (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/Dumbo_(2019_film)"
+      }
+    ],
+    "rel": [
+      [
+        "version_of",
+        "mus.babymine"
+      ],
+      [
+        "song_in",
+        "work.dumbo2019"
+      ]
+    ]
+  }
+]
