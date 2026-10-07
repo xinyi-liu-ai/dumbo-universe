@@ -8,22 +8,36 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const DOMAINS = [
-  {key:'origins', zh:'起源', en:'Origins', q:'原作、1941 年电影、幕后人物与音乐'},
-  {key:'characters', zh:'角色', en:'Characters', q:'Dumbo 身边的每个角色和他们的关系'},
-  {key:'screen', zh:'影视与媒体', en:'Screen & Media', q:'真人版、电视、客串、游戏与发行版本'},
-  {key:'parks', zh:'乐园', en:'Parks', q:'六座乐园的旋转飞象和凯西小火车'},
-  {key:'merch', zh:'商品', en:'Merchandise', q:'品类、地区、渠道、价格、发售日'},
-  {key:'collections', zh:'系列与联名', en:'Collections', q:'周年系列、艺术家合作、联名'},
-  {key:'events', zh:'周年与活动', en:'Events', q:'每五年一次的周年，以及 D23'},
-  {key:'world', zh:'世界', en:'Around the World', q:'Dumbo 在各个国家和地区'},
-  {key:'design', zh:'造型', en:'Design', q:'耳朵、小帽、水彩背景'},
-  {key:'culture', zh:'文化足迹', en:'Culture', q:'翻唱、杂志、内容提示等长尾'},
+  {key:'origins', zh:'起源', en:'Origins'},
+  {key:'characters', zh:'角色', en:'Characters'},
+  {key:'screen', zh:'影视与媒体', en:'Screen & Media'},
+  {key:'parks', zh:'乐园', en:'Parks'},
+  {key:'merch', zh:'商品', en:'Merchandise'},
+  {key:'collections', zh:'系列与联名', en:'Collections'},
+  {key:'events', zh:'周年与活动', en:'Events'},
+  {key:'world', zh:'世界', en:'Around the World'},
+  {key:'design', zh:'造型', en:'Design'},
+  {key:'culture', zh:'文化足迹', en:'Culture'},
 ];
 const DOM = Object.fromEntries(DOMAINS.map(d => [d.key, d]));
+/* Editorial chapters for the home page; they group the data domains for readers. */
+const CHAPTERS = [
+  {key:'story', zh:'故事', en:'The Story', view:'story', domains:['origins','screen','culture'], c:'origins', q:'1939 年的原作、1941 年的电影、2019 年的重拍，以及它们留下的歌和争议'},
+  {key:'characters', zh:'角色', en:'Characters', view:'story', anchor:'chars', domains:['characters'], c:'characters', q:'珍宝太太、Timothy、乌鸦们，还有 2019 版的 Farrier 一家'},
+  {key:'parks', zh:'乐园', en:'Parks', view:'parks', domains:['parks'], c:'parks', q:'从 1955 年的 Disneyland 开始，六座乐园都有自己的飞象'},
+  {key:'merch', zh:'商品', en:'Merchandise', view:'merch', domains:['merch','collections'], c:'merch', q:'周年系列、艺术家合作、百元店小物和 D23 限定'},
+  {key:'years', zh:'85 年', en:'85 Years', view:'timeline', domains:['events'], c:'events', q:'1941 → 2026，每五年一次的周年纪念'},
+  {key:'world', zh:'世界', en:'Around the World', view:'world', domains:['world'], c:'world', q:'美国、日本、中国、法国，Dumbo 在哪里'},
+  {key:'design', zh:'造型', en:'Design Evolution', view:'design', domains:['design'], c:'design', q:'大耳朵、小帽子和越来越圆的脸'},
+];
+const CH = Object.fromEntries(CHAPTERS.map(c => [c.key, c]));
+const CH_OF = {};
+CHAPTERS.forEach(c => c.domains.forEach(d => { if (!CH_OF[d]) CH_OF[d] = c.key; }));
 const TYPES = {Work:['作品','work'], Character:['角色','chr'], Person:['人物','per'], Attraction:['游乐设施','attr'], Place:['地点','place'], Event:['活动','evt'], Anniversary:['周年','ann'], Collection:['系列','col'], Merchandise:['商品','mer'], Retailer:['零售商','ret'], Brand:['品牌','brand'], Publication:['出版物','pub'], Music:['音乐','mus'], Media:['发行版本','med'], Award:['奖项','award'], Artwork:['美术','art'], Concept:['概念','con'], CulturalArtifact:['文化物件','cul'], Region:['地区','reg']};
 const RELS = {
-  appears_in:['登场作品','登场角色与事物'], depicts:['描绘角色','相关商品与作品'], friend_of:['朋友','朋友'], parent_of:['孩子','父母'],
-  helps:['帮助对象','帮助者'], manager_of:['经纪对象','经纪人'], delivers:['送来的孩子','送子者'], mocks:['嘲笑对象','嘲笑者'],
+  appears_in:['登场作品','登场角色与事物'], depicts:['描绘角色','相关商品与作品'], best_friend_of:['最好的朋友','最好的朋友'], friend_of:['朋友','朋友'],
+  parent_of:['孩子','父母'], sibling_of:['兄弟姐妹','兄弟姐妹'], helps:['帮助对象','帮助者'], manager_of:['经纪对象','经纪人'],
+  delivers:['送来的孩子','送子者'], mocks:['嘲笑对象','嘲笑者'],
   based_on:['改编自','改编作品'], adaptation_of:['翻拍自','翻拍版本'], sequel_of:['前作','续作'], edition_of:['影片','发行版本'],
   written_by:['作者 / 编剧','创作'], directed_by:['导演','导演作品'], produced_by:['制片','制片作品'], animated_by:['动画师','动画作品'],
   composed_by:['作曲','作曲作品'], lyrics_by:['作词','作词作品'], performed_by:['演唱','演唱作品'], voiced_by:['配音','配音角色'],
@@ -33,6 +47,29 @@ const RELS = {
   references:['提及','被提及于'], uses_motif:['母题','出现于'], associated_with:['关联','关联'], related_to:['相关','相关'],
   in_region:['地区','该地区条目'],
 };
+/* How a relation is drawn in the graph: story = solid, make = medium, merch = thin, assoc = dotted, geo = faint dashed. */
+const REL_KIND = {};
+Object.entries({
+  story:['friend_of','best_friend_of','parent_of','sibling_of','helps','manager_of','delivers','mocks','appears_in'],
+  make:['based_on','adaptation_of','sequel_of','edition_of','version_of','written_by','directed_by','produced_by','animated_by','composed_by','lyrics_by','performed_by','voiced_by','illustrated_by','song_in','won','nominated_for'],
+  merch:['depicts','part_of_collection','sold_by','released_for','celebrates','featured_at'],
+  assoc:['uses_motif','associated_with','related_to','references'],
+  geo:['in_region','located_at'],
+}).forEach(([k, list]) => list.forEach(r => { REL_KIND[r] = k; }));
+const KINDS = [['story','剧情与人物关系'], ['make','创作与作品谱系'], ['merch','商品、系列与纪念'], ['assoc','关联与引用'], ['geo','地区']];
+/* How relations are grouped in the detail panel. */
+const REL_GROUPS = [
+  ['家人', ['parent_of','sibling_of']],
+  ['朋友与搭档', ['best_friend_of','friend_of','manager_of']],
+  ['互动', ['helps','delivers','mocks']],
+  ['登场与出现', ['appears_in','depicts']],
+  ['幕后', ['written_by','directed_by','produced_by','animated_by','composed_by','lyrics_by','performed_by','voiced_by','illustrated_by']],
+  ['作品谱系', ['based_on','adaptation_of','sequel_of','edition_of','version_of','song_in']],
+  ['荣誉', ['won','nominated_for']],
+  ['商品、系列与纪念', ['part_of_collection','sold_by','released_for','celebrates','featured_at']],
+  ['关联概念', ['uses_motif','associated_with','related_to','references']],
+  ['地区', ['in_region','located_at']],
+];
 const STATUS = {
   official:{zh:'官方', desc:'迪士尼或零售商的官方页面、新闻稿'},
   catalog:{zh:'目录', desc:'官方商品目录、包装、吊牌'},
@@ -51,11 +88,49 @@ const PRESETS = [
   {label:'1941 版的幕后人物', f:{type:['Person'], domain:['origins']}},
   {label:'还没找到出处的条目', f:{status:['collector-reported','unknown']}},
 ];
-const VIEWS = ['universe','graph','archive','timeline','world','design','schema'];
+const ICON = {
+  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+  disc:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 5.5a6.5 6.5 0 0 1 6.5 6.5"/>',
+  note:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  carousel:'<path d="M12 2v3"/><path d="M3.5 9 12 5l8.5 4z"/><path d="M6 9v7M12 9v9M18 9v7"/><circle cx="6" cy="17" r="1.6"/><circle cx="18" cy="17" r="1.6"/><path d="M3 21h18"/>',
+  ticket:'<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M14.5 7.5v1.5M14.5 11.25v1.5M14.5 15v1.5"/>',
+  stack:'<rect x="7" y="3" width="13" height="14" rx="2"/><path d="M4 7v11a3 3 0 0 0 3 3h10"/>',
+  tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/>',
+  store:'<path d="M4 10v10h16V10"/><path d="M3 10 5 4h14l2 6"/><path d="M3 10c0 2.2 4.5 2.2 4.5 0 0 2.2 4.5 2.2 4.5 0 0 2.2 4.5 2.2 4.5 0 0 2.2 4.5 2.2 4.5 0"/><path d="M10 20v-5h4v5"/>',
+  pin:'<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  feather:'<path d="M20 4C11 4 6 9 5 19"/><path d="M20 4c0 8-5.5 12.5-13 12"/><path d="M5 19l-2 2M9 15l6-6"/>',
+  sparkle:'<path d="M12 3c.6 4.7 2.3 6.4 7 7-4.7.6-6.4 2.3-7 7-.6-4.7-2.3-6.4-7-7 4.7-.6 6.4-2.3 7-7z"/><path d="M19 16v4M17 18h4"/>',
+  trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8 20h8"/>',
+  brush:'<path d="M14.5 3.5 20.5 9.5 12 18l-6-6z"/><path d="M6 12c-2 .5-3 2-3 4 0 1.5-.5 3-1 4 3.5 0 7-.5 8-4"/>',
+  magazine:'<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8 7h8M8 11h8M8 15h5"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/>',
+  person:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/>',
+  star:'<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6-4.5-4.2 6.1-.7z"/>',
+  mouse:'<circle cx="6.5" cy="7.5" r="4"/><circle cx="17.5" cy="7.5" r="4"/><path d="M5 15c0-4 3-7 7-7s7 3 7 7c0 3-3 5.5-7 5.5S5 18 5 15z"/><path d="M10 14h.01M14 14h.01M12 17v.5"/>',
+  bird:'<path d="M2 13c4-.5 6.5-3.5 7.5-7.5 2 4.5 5 6.5 9 6.5l3.5-2-2 4.5c-3 5-10.5 6-15 2.5z"/><path d="M17 11h.01"/>',
+  train:'<rect x="3" y="6" width="11" height="10" rx="2"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18.5" r="2"/><circle cx="17" cy="18.5" r="2"/><path d="M6 2.5v3.5M3 10h11"/>',
+  hat:'<path d="M7 4h10v11H7z"/><path d="M3 15.5h18"/><path d="M7 11h10"/>',
+};
+const ICON_OF_TYPE = {Work:'film', Character:'star', Person:'person', Attraction:'carousel', Place:'pin', Event:'ticket', Anniversary:'ticket', Collection:'stack', Merchandise:'tag', Retailer:'store', Brand:'tag', Publication:'book', Music:'note', Media:'disc', Award:'trophy', Artwork:'brush', Concept:'sparkle', CulturalArtifact:'magazine', Region:'pin'};
+const ICON_OF_ID = {'chr.dumbo':'elephant', 'chr.mrsjumbo':'elephant', 'chr.matriarch':'elephant', 'des.ears':'elephant', 'con.pinkelephants':'elephant', 'chr.timothy':'mouse', 'chr.stork':'bird', 'chr.crows':'bird', 'chr.caseyjr':'train', 'attr.caseyjr':'train', 'chr.ringmaster':'hat', 'chr.clowns':'hat', 'des.hatcollar':'hat', 'con.feather':'feather'};
+/* The 1941 plot as ten scenes, in story order. */
+const BEATS = [
+  {t:'送子鹳送来的宝宝', d:'马戏团的冬季驻地，鹳鸟们给动物妈妈们送来宝宝。送子鹳先生最后一个赶到，把 Jumbo Jr. 交给了珍宝太太。', ids:['chr.stork','chr.mrsjumbo']},
+  {t:'一对太大的耳朵', d:'宝宝打了个喷嚏，露出一对巨大的耳朵。象群立刻笑成一团，给他起了外号 Dumbo。', ids:['chr.matriarch','des.ears']},
+  {t:'“疯象”', d:'马戏团开张后，一群男孩围着 Dumbo 取笑他的耳朵。珍宝太太为保护儿子发了怒，被当成疯象关进笼子。', ids:['chr.mrsjumbo','chr.ringmaster']},
+  {t:'Timothy 站了出来', d:'象群把 Dumbo 孤立在一边。小老鼠 Timothy 吓跑了怕老鼠的大象们，决定帮 Dumbo 成为明星。', ids:['chr.timothy']},
+  {t:'大象金字塔', d:'Timothy 夜里在团长耳边出主意，让 Dumbo 站上大象金字塔的顶端。结果 Dumbo 被自己的耳朵绊倒，金字塔和大帐篷一起塌了。', ids:['chr.ringmaster']},
+  {t:'小丑节目', d:'Dumbo 被降去演小丑，在“着火的高楼”节目里扮演从高台上往下跳的宝宝。', ids:['chr.clowns']},
+  {t:'Baby Mine', d:'Timothy 带 Dumbo 去见被关起来的妈妈。母子只能隔着栏杆，用鼻子拥抱。', ids:['mus.babymine','chr.mrsjumbo']},
+  {t:'粉红大象', d:'Dumbo 和 Timothy 误喝了掺了香槟的水，看到一场粉红大象游行的幻觉。', ids:['con.pinkelephants','mus.pinkparade']},
+  {t:'树上醒来', d:'第二天，两人在一棵高树上醒来。乌鸦们起初嘲笑他们；Timothy 推断 Dumbo 是用耳朵飞上来的。乌鸦们送给 Dumbo 一根“魔法羽毛”。', ids:['chr.crows','mus.elephantfly','con.feather']},
+  {t:'飞起来', d:'下一场表演里，Dumbo 从高处跳下时羽毛掉了。Timothy 告诉他羽毛从来没有魔法。Dumbo 靠自己飞了起来，成了明星，珍宝太太也被放了出来。', ids:['con.flight','chr.timothy']},
+];
+const VIEWS = ['universe','story','parks','merch','graph','timeline','world','design','archive','schema'];
 
 const S = {
   remote:new Map(), list:[], byId:new Map(), edges:[], adj:new Map(), chars:new Map(),
-  view:'universe', db:null, canEdit:false, hist:[], cur:null, graphDirty:true, tl:new Set(), wsel:{kind:'region', key:'JP'}, era:0,
+  view:'universe', db:null, canEdit:false, showGeo:false, hist:[], cur:null, graphDirty:true, tl:new Set(), wsel:{kind:'region', key:'JP'}, era:0,
   f:{q:'', tag:'', domain:new Set(), type:new Set(), region:new Set(), character:new Set(), edition:new Set(), status:new Set(), yFrom:'', yTo:'', sort:'year'},
 };
 
@@ -141,28 +216,34 @@ function renderStats(){
   if (!ys.length){ $('#stats').innerHTML = ''; return; }
   $('#stats').innerHTML = `<div><dt>条目</dt><dd>${S.list.length}</dd></div><div><dt>关系</dt><dd>${S.edges.filter(x => !x.virtual).length}</dd></div><div><dt>跨越</dt><dd>${Math.min(...ys)}–${Math.max(...ys)}</dd></div>`;
 }
+const chapterOf = e => CH_OF[e.domains[0]] || 'story';
+function goChapter(key){
+  const ch = CH[key]; if (!ch) return;
+  go(ch.view);
+  if (ch.anchor){ const el = document.getElementById(ch.anchor); if (el) el.scrollIntoView({block:'start'}); }
+}
 function renderUniverse(){
   countdown(); renderStats();
   $('#presets').innerHTML = PRESETS.map((p, i) => `<button class="preset" data-preset="${i}">${esc(p.label)}</button>`).join('');
-  const C = 480, R1 = 182, R2 = 318, RL = R2 + 13, GAP = 0.05;
-  const groups = DOMAINS.map(d => ({d, items:S.list.filter(e => e.domains[0] === d.key).sort(byYear)}));
+  const C = 480, R1 = 182, R2 = 318, RL = R2 + 13, GAP = 0.06;
+  const groups = CHAPTERS.map(ch => ({ch, items:S.list.filter(e => chapterOf(e) === ch.key).sort(byYear)}));
   const slots = groups.reduce((n, g) => n + Math.max(g.items.length, 1), 0);
   const step = (Math.PI * 2 - GAP * groups.length) / slots;
-  const pos = new Map(), dpos = [];
+  const pos = new Map(), cpos = [];
   let a = -Math.PI / 2 + GAP / 2;
   for (const g of groups){
     const n = Math.max(g.items.length, 1), a0 = a;
-    g.items.forEach((e, i) => { const t = a0 + step * (i + .5); pos.set(e.id, {t, x:C + R2 * Math.cos(t), y:C + R2 * Math.sin(t), e}); });
+    g.items.forEach((e, i) => { const t = a0 + step * (i + .5); pos.set(e.id, {t, x:C + R2 * Math.cos(t), y:C + R2 * Math.sin(t), e, c:g.ch.c}); });
     const mid = a0 + step * n / 2;
-    dpos.push({g, a0, a1:a0 + step * n, mid, x:C + R1 * Math.cos(mid), y:C + R1 * Math.sin(mid)});
+    cpos.push({g, a0, a1:a0 + step * n, mid, x:C + R1 * Math.cos(mid), y:C + R1 * Math.sin(mid)});
     a += step * n + GAP;
   }
   const f1 = v => v.toFixed(1);
   let h = `<circle class="ring d" cx="${C}" cy="${C}" r="${R1}"/><circle class="ring" cx="${C}" cy="${C}" r="${R2}"/>`;
-  for (const d of dpos){
+  for (const d of cpos){
     h += `<line class="spoke" x1="${C}" y1="${C}" x2="${f1(d.x)}" y2="${f1(d.y)}"/>`;
     const r = R2 - 14, sx = C + r * Math.cos(d.a0 + .01), sy = C + r * Math.sin(d.a0 + .01), ex = C + r * Math.cos(d.a1 - .01), ey = C + r * Math.sin(d.a1 - .01);
-    h += `<path class="arc" style="stroke:var(--d-${d.g.d.key})" d="M${f1(sx)} ${f1(sy)}A${r} ${r} 0 ${d.a1 - d.a0 > Math.PI ? 1 : 0} 1 ${f1(ex)} ${f1(ey)}"/>`;
+    h += `<path class="arc" style="stroke:var(--d-${d.g.ch.c})" d="M${f1(sx)} ${f1(sy)}A${r} ${r} 0 ${d.a1 - d.a0 > Math.PI ? 1 : 0} 1 ${f1(ex)} ${f1(ey)}"/>`;
     const mx = C + (R2 - 14) * Math.cos(d.mid), my = C + (R2 - 14) * Math.sin(d.mid);
     h += `<line class="spoke" x1="${f1(d.x)}" y1="${f1(d.y)}" x2="${f1(mx)}" y2="${f1(my)}"/>`;
   }
@@ -175,12 +256,13 @@ function renderUniverse(){
     const dg = p.t * 180 / Math.PI, flip = Math.cos(p.t) < 0;
     const lx = C + RL * Math.cos(p.t), ly = C + RL * Math.sin(p.t);
     let lab = short(p.e); if ([...lab].length > 13) lab = [...lab].slice(0, 12).join('') + '…';
-    h += `<circle class="dot" data-id="${esc(id)}" style="fill:${col(p.e)}" cx="${f1(p.x)}" cy="${f1(p.y)}" r="${id === 'chr.dumbo' ? 7 : 4.6}"/>`;
+    h += `<circle class="dot" data-id="${esc(id)}" style="fill:var(--d-${p.c})" cx="${f1(p.x)}" cy="${f1(p.y)}" r="${id === 'chr.dumbo' ? 7 : 4.6}"/>`;
     h += `<circle class="hit" data-id="${esc(id)}" cx="${f1(p.x)}" cy="${f1(p.y)}" r="10"><title>${esc(title(p.e))}</title></circle>`;
     h += `<text class="el" data-id="${esc(id)}" text-anchor="${flip ? 'end' : 'start'}" transform="translate(${f1(lx)} ${f1(ly)}) rotate(${f1(flip ? dg + 180 : dg)})">${esc(lab)}</text>`;
   }
-  for (const d of dpos){
-    h += `<g class="dn" data-dom="${d.g.d.key}" role="button" tabindex="0" aria-label="${esc(d.g.d.zh)}：${d.g.items.length} 个条目"><circle cx="${f1(d.x)}" cy="${f1(d.y)}" r="38" style="stroke:var(--d-${d.g.d.key})"/><text class="dz" x="${f1(d.x)}" y="${f1(d.y - 7)}">${esc(d.g.d.zh.length > 4 ? d.g.d.zh.slice(0, 2) : d.g.d.zh)}</text><text class="dc" x="${f1(d.x)}" y="${f1(d.y + 13)}">${d.g.items.length}</text></g>`;
+  for (const d of cpos){
+    const ch = d.g.ch;
+    h += `<g class="dn" data-ch="${ch.key}" role="button" tabindex="0" aria-label="${esc(ch.zh)}：${d.g.items.length} 个条目"><circle cx="${f1(d.x)}" cy="${f1(d.y)}" r="38" style="stroke:var(--d-${ch.c})"/><text class="dz" x="${f1(d.x)}" y="${f1(d.y - 7)}">${esc(ch.zh)}</text><text class="dc" x="${f1(d.x)}" y="${f1(d.y + 13)}">${d.g.items.length}</text></g>`;
   }
   h += `<g class="hub" data-id="chr.dumbo" role="button" tabindex="0" aria-label="打开 Dumbo 档案卡">
     <circle cx="${C}" cy="${C}" r="88" style="fill:var(--pink-wash)"/>
@@ -193,11 +275,10 @@ function renderUniverse(){
       <path d="M-11 -21 L0 -42 L11 -21 Z" style="fill:var(--gold)"/>
     </g>
     <text class="hub-t" x="${C}" y="${C + 60}">Dumbo</text></g>`;
-  const svg = $('#orbit'); svg.innerHTML = h;
+  $('#orbit').innerHTML = h;
   $('#domains').innerHTML = groups.map(g => {
     const ex = [...g.items].sort((a, b) => deg(b.id) - deg(a.id)).slice(0, 3).map(short).join(' · ');
-    const total = S.list.filter(e => e.domains.includes(g.d.key)).length;
-    return `<button class="dcard" style="--c:var(--d-${g.d.key})" data-domgo="${g.d.key}"><span class="row"><h3>${esc(g.d.zh)}</h3><span class="n">${total}</span></span><span class="en">${esc(g.d.en)}</span><p>${esc(g.d.q)}</p><span class="ex">${esc(ex || '还没有条目')}</span></button>`;
+    return `<button class="dcard" style="--c:var(--d-${g.ch.c})" data-ch="${g.ch.key}"><span class="row"><h3>${esc(g.ch.zh)}</h3><span class="n">${g.items.length}</span></span><span class="en">${esc(g.ch.en)}</span><p>${esc(g.ch.q)}</p><span class="ex">${esc(ex || '还没有条目')}</span></button>`;
   }).join('');
 }
 function orbitFocus(id){
@@ -208,14 +289,14 @@ function orbitFocus(id){
   const nb = new Set([id]);
   $$('.ch', svg).forEach(p => { if (p.dataset.s === id || p.dataset.t === id){ p.classList.add('on'); nb.add(p.dataset.s); nb.add(p.dataset.t); } });
   $$('.dot,.el', svg).forEach(n => { if (nb.has(n.dataset.id)) n.classList.add('on'); });
-  const e = S.byId.get(id); if (e) $$('.dn', svg).forEach(n => { if (n.dataset.dom === e.domains[0]) n.classList.add('on'); });
+  const e = S.byId.get(id); if (e) $$('.dn', svg).forEach(n => { if (n.dataset.ch === chapterOf(e)) n.classList.add('on'); });
 }
-function orbitDomain(key){
+function orbitChapter(key){
   const svg = $('#orbit');
   $$('.on', svg).forEach(n => n.classList.remove('on'));
   svg.classList.add('focus');
-  $$('.dot,.el', svg).forEach(n => { if (S.byId.get(n.dataset.id)?.domains.includes(key)) n.classList.add('on'); });
-  $$('.dn', svg).forEach(n => { if (n.dataset.dom === key) n.classList.add('on'); });
+  $$('.dot,.el', svg).forEach(n => { const e = S.byId.get(n.dataset.id); if (e && chapterOf(e) === key) n.classList.add('on'); });
+  $$('.dn', svg).forEach(n => { if (n.dataset.ch === key) n.classList.add('on'); });
 }
 
 /* ---------- archive ---------- */
@@ -258,54 +339,213 @@ function renderArchive(){
   $('#results').innerHTML = res.length ? res.map(cardHTML).join('') : `<div class="empty" style="grid-column:1/-1">没有符合这些条件的条目。试着去掉一个筛选条件${S.canEdit ? '，或者点右上角“添加条目”把它收进来' : ''}。</div>`;
 }
 
+/* ---------- visuals ---------- */
+function iconName(e){
+  if (ICON_OF_ID[e.id]) return ICON_OF_ID[e.id];
+  if (e.type === 'Character' && e.continuity.includes('2019 真人')) return 'person';
+  return ICON_OF_TYPE[e.type] || 'sparkle';
+}
+function iconSVG(name){
+  if (name === 'elephant') return `<svg class="ic" viewBox="-52 -46 104 92" aria-hidden="true"><g fill="currentColor"><ellipse cx="-30" cy="-2" rx="22" ry="20" opacity=".5"/><ellipse cx="30" cy="-2" rx="22" ry="20" opacity=".5"/><circle r="19"/><path d="M-6 10C-8 24-2 34 10 34l1-6C3 28 1 20 5 11z"/></g><circle cx="-7" cy="-3" r="2.6" style="fill:var(--card)"/><circle cx="7" cy="-3" r="2.6" style="fill:var(--card)"/><path d="M-9-17 0-36 9-17z" style="fill:var(--gold)"/></svg>`;
+  return `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name] || ICON.sparkle}</svg>`;
+}
+function credit(img){
+  const who = esc(img.credit || '未署名'), lic = esc(img.license || '');
+  return `图片：${img.page ? `<a href="${esc(img.page)}" target="_blank" rel="noopener noreferrer">${who}</a>` : who}${lic ? ` · ${lic}` : ''}${img.note ? ` · ${esc(img.note)}` : ''}`;
+}
+function visual(e, cls){
+  const img = e.image && typeof e.image === 'object' ? e.image : (typeof e.image === 'string' ? {src:e.image} : null);
+  if (img && img.src) return `<figure class="vis photo ${cls}"><div class="ph"><img src="${esc(img.src)}" alt="${esc(title(e))}" loading="lazy" referrerpolicy="no-referrer"></div><figcaption>${credit(img)}</figcaption></figure>`;
+  const big = e.type === 'Anniversary' && e.year ? `<span class="art-n">${e.year - 1941}</span>` : iconSVG(iconName(e));
+  return `<div class="vis art ${cls}" style="--c:${col(e)}" aria-hidden="true">${big}${e.year != null && e.type !== 'Anniversary' ? `<span class="art-y">${esc(e.year)}</span>` : ''}</div>`;
+}
+
 /* ---------- graph ---------- */
 let G = null;
+function hopsFrom(root){
+  const h = new Map([[root, 0]]), q = [root];
+  while (q.length){
+    const id = q.shift();
+    for (const a of S.adj.get(id) || []){
+      if (a.x.virtual || REL_KIND[a.x.r] === 'geo' || h.has(a.other)) continue;
+      h.set(a.other, h.get(id) + 1); q.push(a.other);
+    }
+  }
+  return h;
+}
 function renderGraph(){
   const box = $('#graph');
-  $('#legend').innerHTML = DOMAINS.map(d => `<span class="chip" style="--c:var(--d-${d.key});cursor:default"><span class="dt"></span>${esc(d.zh)}</span>`).join('');
-  if (!window.d3){ box.innerHTML = '<div class="empty">关系网络需要 D3 图形库，但它没有加载成功。请检查网络后刷新页面；其他视图不受影响。</div>'; return; }
+  $('#legend').innerHTML = DOMAINS.map(d => `<button class="chip" style="--c:var(--d-${d.key})" data-gdom="${d.key}" aria-pressed="${!!G && G.domPin === d.key}"><span class="dt"></span>${esc(d.zh)}</button>`).join('');
+  $('#elegend').innerHTML = KINDS.map(([k, l]) => `<span class="ek"><svg width="36" height="10" aria-hidden="true"><line class="gl k-${k}" x1="2" y1="5" x2="34" y2="5"/></svg>${esc(l)}</span>`).join('')
+    + `<label class="ek"><input type="checkbox" id="geoToggle"${S.showGeo ? ' checked' : ''}> 显示地区连线</label>`;
+  if (!window.d3){ box.innerHTML = '<div class="empty">关系网络需要 D3 图形库，但它没有加载成功。请检查网络后刷新页面；其他页面不受影响。</div>'; return; }
   if (!S.graphDirty && G) return;
   S.graphDirty = false;
   if (G) G.sim.stop();
   box.innerHTML = '';
-  const w = Math.max(box.clientWidth, 320), h = Math.round(Math.max(520, Math.min(820, w * .7)));
-  const nodes = S.list.map(e => ({id:e.id, e, dg:deg(e.id)}));
-  const links = S.edges.map(x => ({source:x.s, target:x.t, virtual:!!x.virtual}));
-  const rad = d => d.id === 'chr.dumbo' ? 16 : 4.5 + Math.sqrt(d.dg) * 2.1;
+  const w = Math.max(box.clientWidth, 320), h = Math.round(Math.max(540, Math.min(860, w * .72)));
+  const cx = w / 2, cy = h / 2, R = Math.min(w, h) / 2 - 34;
+  const ringR = [0, .3, .56, .8, .97].map(f => f * R);
+  const hop = hopsFrom('chr.dumbo');
+  const isRoot = d => d.id === 'chr.dumbo';
+  const nodes = S.list.map(e => ({id:e.id, e, dg:deg(e.id), hop:hop.has(e.id) ? Math.min(hop.get(e.id), 4) : 4}));
+  /* Label tiers: 0 = Dumbo, 1 = core story nodes shown at rest, 2 = shown when zoomed in, 3 = shown when zoomed in further. */
+  const CORE = ['characters', 'origins', 'screen', 'parks', 'events'];
+  nodes.forEach(n => { n.tier = isRoot(n) ? 0 : ((n.hop === 1 && CORE.includes(n.e.domains[0]) && n.dg >= 3) || n.dg >= 10) ? 1 : (n.hop === 1 || n.dg >= 5) ? 2 : 3; });
+  const links = S.edges.map(x => ({source:x.s, target:x.t, kind:x.virtual ? 'geo' : (REL_KIND[x.r] || 'assoc')}));
+  const rad = d => isRoot(d) ? 26 : Math.min(13, 4 + Math.sqrt(d.dg) * 1.5);
   const svg = d3.select(box).append('svg').attr('class', 'gsvg').attr('viewBox', [0, 0, w, h]).attr('role', 'img').attr('aria-label', 'Dumbo 宇宙关系网络');
   const root = svg.append('g');
-  const link = root.append('g').selectAll('line').data(links).join('line').attr('class', d => 'gl' + (d.virtual ? ' v' : ''));
-  const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class', 'gn');
+  root.append('g').attr('class', 'rings').selectAll('circle').data(ringR.slice(1, 4)).join('circle').attr('cx', cx).attr('cy', cy).attr('r', r => r);
+  const link = root.append('g').selectAll('line').data(links).join('line').attr('class', d => `gl k-${d.kind}`);
+  const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class', d => 'gn' + (isRoot(d) ? ' root' : '') + (d.tier <= 1 ? ' lbl' : ''));
   node.append('circle').attr('r', rad).style('fill', d => col(d.e));
-  node.append('text').text(d => short(d.e)).attr('x', d => rad(d) + 4).attr('y', 4).attr('class', d => d.dg >= 5 || d.id === 'chr.dumbo' ? 'show' : null);
+  node.append('text').text(d => short(d.e)).attr('x', d => isRoot(d) ? 0 : rad(d) + 4).attr('y', d => isRoot(d) ? rad(d) + 20 : 4).attr('text-anchor', d => isRoot(d) ? 'middle' : null);
   node.append('title').text(d => title(d.e));
+  const dist = {story:58, make:70, merch:58, assoc:80, geo:160}, str = {story:.5, make:.35, merch:.35, assoc:.2, geo:.015};
   const sim = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(links).id(d => d.id).distance(d => d.virtual ? 110 : 52).strength(d => d.virtual ? .03 : .45))
-    .force('charge', d3.forceManyBody().strength(-150))
+    .force('link', d3.forceLink(links).id(d => d.id).distance(l => dist[l.kind]).strength(l => str[l.kind]))
+    .force('charge', d3.forceManyBody().strength(-110))
     .force('collide', d3.forceCollide(d => rad(d) + 5))
-    .force('x', d3.forceX(w / 2).strength(.05)).force('y', d3.forceY(h / 2).strength(.08));
-  const hub = nodes.find(n => n.id === 'chr.dumbo'); if (hub){ hub.fx = w / 2; hub.fy = h / 2; }
+    .force('radial', d3.forceRadial(d => ringR[d.hop], cx, cy).strength(d => isRoot(d) ? 0 : .6));
+  const hub = nodes.find(isRoot); if (hub){ hub.fx = cx; hub.fy = cy; }
   const tick = () => { link.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y); node.attr('transform', d => `translate(${d.x.toFixed(1)},${d.y.toFixed(1)})`); };
   if (matchMedia('(prefers-reduced-motion: reduce)').matches){ sim.stop(); for (let i = 0; i < 300; i++) sim.tick(); tick(); } else sim.on('tick', tick);
-  const zoom = d3.zoom().scaleExtent([.3, 4])
+  const zoom = d3.zoom().scaleExtent([.4, 5])
     .filter(ev => ev.type === 'wheel' ? (ev.ctrlKey || ev.metaKey) : !ev.button)
-    .on('zoom', ev => root.attr('transform', ev.transform));
+    .on('zoom', ev => { root.attr('transform', ev.transform); const k = ev.transform.k, lv = k < 1.3 ? 1 : k < 2.1 ? 2 : 3; node.classed('lbl', d => d.tier <= lv); });
   svg.call(zoom);
   node.call(d3.drag()
     .on('start', (ev, d) => { if (!ev.active) sim.alphaTarget(.3).restart(); d.fx = d.x; d.fy = d.y; })
     .on('drag', (ev, d) => { d.fx = ev.x; d.fy = ev.y; })
-    .on('end', (ev, d) => { if (!ev.active) sim.alphaTarget(0); if (d.id !== 'chr.dumbo'){ d.fx = null; d.fy = null; } }));
-  const hl = id => {
-    const nb = new Set(id ? [id] : []);
-    if (id) links.forEach(l => { if (l.source.id === id) nb.add(l.target.id); if (l.target.id === id) nb.add(l.source.id); });
-    node.classed('dim', d => !!id && !nb.has(d.id)).classed('on', d => !!id && nb.has(d.id));
-    link.classed('on', l => !!id && (l.source.id === id || l.target.id === id)).classed('dim', l => !!id && l.source.id !== id && l.target.id !== id);
-  };
-  node.on('mouseenter', (ev, d) => hl(d.id)).on('mouseleave', () => hl(G.pin || null)).on('click', (ev, d) => openEntity(d.id));
-  G = {sim, svg, zoom, node, hl, pin:null, w, h,
-    focus(id){ G.pin = id; hl(id); const n = nodes.find(x => x.id === id); if (!n) return; setTimeout(() => svg.transition().duration(matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 600).call(zoom.transform, d3.zoomIdentity.translate(w / 2, h / 2).scale(1.6).translate(-n.x, -n.y)), 700); },
+    .on('end', (ev, d) => { if (!ev.active) sim.alphaTarget(0); if (!isRoot(d)){ d.fx = null; d.fy = null; } }));
+  const nb = new Map(nodes.map(n => [n.id, new Set()]));
+  links.forEach(l => { const s = l.source.id, t = l.target.id; l.nb = true; nb.get(s).add(t); nb.get(t).add(s); });
+  const geoNb = new Map(nodes.map(n => [n.id, new Set()]));
+  links.forEach(l => { if (l.kind !== 'geo'){ geoNb.get(l.source.id).add(l.target.id); geoNb.get(l.target.id).add(l.source.id); } });
+  node.on('mouseenter', (ev, d) => { G.hover = d.id; paintGraph(); })
+      .on('mouseleave', () => { G.hover = null; paintGraph(); })
+      .on('click', (ev, d) => { ev.stopPropagation(); G.sel = d.id; G.domPin = null; paintGraph(); openEntity(d.id); });
+  svg.on('click', ev => { if (ev.target.closest && ev.target.closest('.gn')) return; if (G.sel){ G.sel = null; paintGraph(); } });
+  G = {sim, svg, zoom, node, link, w, h, sel:null, hover:null, dom:null, domPin:null,
+    nbOf: id => (S.showGeo ? nb : geoNb).get(id) || new Set(),
+    focus(id){
+      G.sel = id; paintGraph();
+      const n = nodes.find(x => x.id === id); if (!n) return;
+      const go2 = () => svg.transition().duration(matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 600).call(zoom.transform, d3.zoomIdentity.translate(w / 2, h / 2).scale(1.7).translate(-n.x, -n.y));
+      setTimeout(go2, 650);
+    },
     search(q){ q = q.trim().toLowerCase(); node.classed('match', d => !!q && [d.e.zh, d.e.name, d.e.short, ...d.e.tags].join(' ').toLowerCase().includes(q)); }};
+  applyGeo();
   G.search($('#gq').value);
+}
+function applyGeo(){
+  if (!G) return;
+  G.link.style('display', d => d.kind === 'geo' && !S.showGeo ? 'none' : null);
+  G.node.style('display', d => d.e.type === 'Region' && !S.showGeo ? 'none' : null);
+}
+function paintGraph(){
+  if (!G) return;
+  const {node, link} = G;
+  const dom = G.dom || G.domPin;
+  if (dom && !G.hover){
+    const inDom = d => d.e.domains.includes(dom);
+    node.classed('dim', d => !inDom(d)).classed('on', inDom).classed('n2', false).classed('sel', false);
+    link.classed('on', false).classed('on2', l => inDom(l.source) && inDom(l.target)).classed('dim', l => !(inDom(l.source) && inDom(l.target)));
+    return;
+  }
+  const f = G.hover || G.sel;
+  if (!f){
+    node.classed('dim', false).classed('on', false).classed('n2', false).classed('sel', false);
+    link.classed('on', false).classed('on2', false).classed('dim', false);
+    return;
+  }
+  const n1 = G.nbOf(f), n2 = new Set();
+  if (!G.hover || G.hover === G.sel) for (const a of n1) for (const b of G.nbOf(a)) if (b !== f && !n1.has(b)) n2.add(b);
+  const hit = l => l.source.id === f || l.target.id === f;
+  const hit2 = l => !hit(l) && ((n1.has(l.source.id) && n2.has(l.target.id)) || (n2.has(l.source.id) && n1.has(l.target.id)));
+  node.classed('sel', d => d.id === f).classed('on', d => d.id === f || n1.has(d.id)).classed('n2', d => n2.has(d.id)).classed('dim', d => d.id !== f && !n1.has(d.id) && !n2.has(d.id));
+  link.classed('on', hit).classed('on2', hit2).classed('dim', l => !hit(l) && !hit2(l));
+}
+
+/* ---------- story & characters ---------- */
+function chip(e){ return e ? `<button class="chip ent" style="--c:${col(e)}" data-open="${esc(e.id)}"><span class="dt"></span><span class="t">${esc(short(e))}</span></button>` : ''; }
+function roleToDumbo(e){
+  if (e.id === 'chr.dumbo') return '主角';
+  const roles = [];
+  for (const a of S.adj.get(e.id) || []){
+    if (a.other !== 'chr.dumbo' || a.x.virtual) continue;
+    const lab = (RELS[a.x.r] || RELS.related_to)[a.dir === 'out' ? 1 : 0];
+    if (!roles.includes(lab)) roles.push(lab);
+  }
+  return roles.join(' · ');
+}
+function renderStory(){
+  const g = id => S.byId.get(id);
+  const film = (id, lead) => { const e = g(id); if (!e) return ''; const f = Object.entries(e.facts).slice(0, 5);
+    return `<article class="film" style="--c:${col(e)}"><div class="fy">${esc(e.year)}</div><div class="fb"><h3>${esc(title(e))}</h3><p class="fl">${esc(lead)}</p><dl class="facts">${f.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl><button class="btn small" data-open="${esc(id)}">打开档案卡</button></div></article>`; };
+  const chars = S.list.filter(e => e.type === 'Character');
+  const c41 = chars.filter(e => !e.continuity.includes('2019 真人')).sort((a, b) => deg(b.id) - deg(a.id));
+  const c19 = chars.filter(e => e.continuity.includes('2019 真人'));
+  const ccard = e => { const who = e.facts['配音'] || e.facts['饰演'] || ''; const role = roleToDumbo(e);
+    return `<button class="ccard" data-open="${esc(e.id)}">${visual(e, 'cvis')}<span class="cn">${esc(title(e))}</span><span class="ce">${esc(e.name || '')}</span>${role ? `<span class="cr">与 Dumbo：${esc(role)}</span>` : ''}${who ? `<span class="cw">${e.facts['配音'] ? '配音' : '饰演'} ${esc(who)}</span>` : ''}</button>`; };
+  const rows = list => list.map(e => `<button class="lrow" data-open="${esc(e.id)}"><span class="ly">${esc(e.year ?? '')}</span><span class="lt">${esc(title(e))}</span><span class="ls">${esc((e.summary || '').split('。')[0])}</span></button>`).join('');
+  const songs = S.list.filter(e => e.type === 'Music' && e.domains[0] === 'origins');
+  const people = S.list.filter(e => e.type === 'Person' && e.domains[0] === 'origins');
+  const screen = S.list.filter(e => e.domains[0] === 'screen' && !['work.dumbo2019'].includes(e.id) && e.type !== 'Person').sort(byYear);
+  const culture = S.list.filter(e => chapterOf(e) === 'story' && e.domains[0] === 'culture').sort(byYear);
+  $('#story').innerHTML = `
+    <div class="films">${film('work.dumbo1941', '迪士尼第 4 部动画长片，也是最短的之一。没有台词的主角，一根羽毛，一次起飞。')}${film('work.dumbo2019', '蒂姆·波顿的真人重拍。动物不再说话，故事交给了照顾 Dumbo 的人类家庭。')}</div>
+    <div class="section-t"><h2>1941 版的故事</h2><span class="eyebrow">十个场景，按剧情顺序</span></div>
+    <ol class="beats">${BEATS.map((b, i) => `<li><span class="bn">${i + 1}</span><div><h3>${esc(b.t)}</h3><p>${esc(b.d)}</p><div class="fopts">${b.ids.map(id => chip(g(id))).join('')}</div></div></li>`).join('')}</ol>
+    <div class="section-t" id="chars"><h2>角色</h2><span class="eyebrow">1941 动画</span></div>
+    <div class="cgrid">${c41.map(ccard).join('')}</div>
+    <div class="section-t"><h2>2019 真人版的人们</h2><span class="eyebrow">另一条故事线</span></div>
+    <div class="cgrid">${c19.map(ccard).join('')}</div>
+    <div class="two">
+      <div><div class="section-t"><h2>歌曲</h2></div><div class="lrows">${rows(songs)}</div></div>
+      <div><div class="section-t"><h2>幕后</h2></div><div class="fopts">${people.map(chip).join('')}</div>${chip(g('pub.rollabook'))}</div>
+    </div>
+    <div class="section-t"><h2>其他影视与发行版本</h2></div><div class="lrows">${rows(screen)}</div>
+    ${culture.length ? `<div class="section-t"><h2>文化足迹</h2></div><div class="lrows">${rows(culture)}</div>` : ''}`;
+}
+
+/* ---------- parks ---------- */
+function renderParks(){
+  const rides = S.list.filter(e => e.type === 'Attraction' && e.tags.includes('旋转飞象')).sort(byYear);
+  const other = S.list.filter(e => chapterOf(e) === 'parks' && !rides.includes(e)).sort(byYear);
+  const X = y => 40 + (y - 1950) / 80 * 720;
+  let t = `<line class="ax" x1="${X(1950)}" y1="70" x2="${X(2030)}" y2="70"/>`;
+  for (let y = 1950; y <= 2030; y += 10) t += `<line class="tk" x1="${X(y)}" y1="66" x2="${X(y)}" y2="74"/><text class="tkl" x="${X(y)}" y="${y % 20 === 10 ? 92 : 92}">${y}</text>`;
+  rides.forEach((e, i) => { const up = i % 2 === 0, x = X(e.year);
+    t += `<g class="pm" data-open="${esc(e.id)}"><line x1="${x}" y1="70" x2="${x}" y2="${up ? 38 : 102}"/><circle cx="${x}" cy="70" r="6"/><text x="${x}" y="${up ? 30 : 116}">${esc((e.short || '').replace('飞象 · ', ''))} ${e.year}</text></g>`; });
+  const pcard = e => `<button class="pcard" data-open="${esc(e.id)}">${visual(e, 'pvis')}<span class="pt">${esc(title(e))}</span><span class="pp">${esc(e.facts['园区'] || '')}</span><span class="pd"><b>${esc(e.date || e.year || '')}</b>${e.facts['改造'] ? ` · ${esc(e.facts['改造'])}` : ''}</span></button>`;
+  const parkOnly = S.list.filter(e => e.edition.includes('park'));
+  $('#parks').innerHTML = `
+    <div class="panel ptl"><h3>六座飞象的开放顺序</h3><div class="tbl"><svg viewBox="0 0 800 130" role="img" aria-label="1955 年到 2016 年六座飞象的开放年份">${t}</svg></div></div>
+    <div class="pgrid">${rides.map(pcard).join('')}</div>
+    ${other.length ? `<div class="section-t"><h2>乐园里的其他 Dumbo</h2></div><div class="pgrid">${other.map(pcard).join('')}</div>` : ''}
+    <div class="section-t"><h2>乐园限定商品</h2></div>
+    ${parkOnly.length ? `<div class="grid">${parkOnly.map(cardHTML).join('')}</div>` : '<div class="empty">还没有收录乐园限定商品。各乐园的飞象周边、徽章、爆米花桶都属于这里。</div>'}`;
+}
+
+/* ---------- merch ---------- */
+function renderMerch(){
+  const cols = S.list.filter(e => e.type === 'Collection').sort((a, b) => String(b.date || b.year || '').localeCompare(String(a.date || a.year || '')));
+  const itemsOf = id => (S.adj.get(id) || []).filter(a => a.dir === 'in' && a.x.r === 'part_of_collection').map(a => S.byId.get(a.other));
+  const inCol = new Set(cols.flatMap(c => itemsOf(c.id).map(e => e.id)));
+  const loose = S.list.filter(e => e.type === 'Merchandise' && !inCol.has(e.id)).sort(byYear);
+  const rets = S.list.filter(e => e.type === 'Retailer');
+  const retOf = id => (S.adj.get(id) || []).filter(a => a.dir === 'out' && a.x.r === 'sold_by').map(a => S.byId.get(a.other));
+  const block = c => { const items = itemsOf(c.id), ret = retOf(c.id);
+    return `<section class="colsec" style="--c:${col(c)}"><div class="colh"><div><div class="colm">${esc(c.date || c.year || '')}${c.region.length ? ` · ${c.region.map(r => esc(REGIONS[r] || r)).join(' · ')}` : ''}${ret.length ? ` · ${ret.map(r => esc(short(r))).join('、')}` : ''}</div><h3><button class="linkish" data-open="${esc(c.id)}">${esc(title(c))}</button></h3></div><span class="st st-${c.status}">${esc(STATUS[c.status].zh)}</span></div>
+      <p class="colp">${esc(c.summary || '')}</p>
+      <div class="colf">${['件数', '价格', '发售', '首发', '线上'].filter(k => c.facts[k]).map(k => `<span><em>${k}</em>${esc(c.facts[k])}</span>`).join('')}<span><em>已收录</em>${items.length} 件</span></div>
+      ${items.length ? `<div class="grid">${items.map(cardHTML).join('')}</div>` : '<p class="colempty">单品待补充。</p>'}</section>`; };
+  $('#merch').innerHTML = cols.map(block).join('')
+    + (loose.length ? `<div class="section-t"><h2>未归入系列的商品</h2></div><div class="grid">${loose.map(cardHTML).join('')}</div>` : '')
+    + `<div class="section-t"><h2>零售渠道</h2></div><div class="fopts">${rets.map(chip).join('')}</div>
+       <p style="margin-top:20px"><button class="btn" data-domgo="merch">在全部档案里按地区、发行类型筛选商品</button></p>`;
 }
 
 /* ---------- timeline ---------- */
@@ -429,31 +669,46 @@ function renderSchema(){
 }
 
 /* ---------- drawer ---------- */
+function relationsHTML(id){
+  const rows = new Map(), seen = new Set();
+  for (const a of S.adj.get(id) || []){
+    const r = RELS[a.x.r] ? a.x.r : 'related_to', lab = RELS[r][a.dir === 'out' ? 0 : 1];
+    if (seen.has(lab + '|' + a.other)) continue;
+    seen.add(lab + '|' + a.other);
+    let gi = REL_GROUPS.findIndex(g => g[1].includes(r)); if (gi < 0) gi = 8;
+    const key = gi + '|' + lab;
+    if (!rows.has(key)) rows.set(key, {gi, ri:REL_GROUPS[gi][1].indexOf(r), lab, items:[]});
+    rows.get(key).items.push({o:S.byId.get(a.other), note:a.x.note});
+  }
+  const list = [...rows.values()].sort((a, b) => a.gi - b.gi || a.ri - b.ri);
+  const n = list.reduce((s, r) => s + r.items.length, 0);
+  let html = '', cur = -1;
+  for (const r of list){
+    if (r.gi !== cur){ if (cur !== -1) html += '</div>'; cur = r.gi; html += `<div class="rsec"><h5>${esc(REL_GROUPS[r.gi][0])}</h5>`; }
+    html += `<div class="rgroup"><span class="lab">${esc(r.lab)}</span><div class="cs">${r.items.map(({o, note}) => `<button class="chip ent" style="--c:${col(o)}" data-open="${esc(o.id)}"><span class="dt"></span><span class="t">${esc(short(o))}</span>${note ? `<span class="note-i">${esc(note)}</span>` : ''}</button>`).join('')}</div></div>`;
+  }
+  if (cur !== -1) html += '</div>';
+  return {html, n};
+}
 function openEntity(id, push = true){
   const e = S.byId.get(id); if (!e) return;
   if (push && S.cur && S.cur !== id && !$('#drawer').hidden) S.hist.push(S.cur);
   S.cur = id;
-  const groups = new Map(), seen = new Set();
-  for (const a of S.adj.get(id) || []){
-    const lab = (RELS[a.x.r] || RELS.related_to)[a.dir === 'out' ? 0 : 1];
-    if (seen.has(lab + '|' + a.other)) continue;
-    seen.add(lab + '|' + a.other);
-    if (!groups.has(lab)) groups.set(lab, []);
-    groups.get(lab).push({o:S.byId.get(a.other), note:a.x.note});
-  }
-  const relCount = [...groups.values()].reduce((n, l) => n + l.length, 0);
+  const rel = relationsHTML(id);
   const facts = Object.entries(e.facts);
+  const line = [e.year != null ? esc(when(e)) : '', esc(typeZh(e.type)), e.region.length ? e.region.map(r => esc(REGIONS[r] || r)).join(' · ') : ''].filter(Boolean).join(' · ');
   const d = $('#drawer');
-  d.innerHTML = `<div class="dhead"><div class="l">${S.hist.length ? '<button class="btn small" data-back>← 返回</button>' : ''}<span class="tchip" style="--c:${col(e)}">${esc(typeZh(e.type))}</span><span class="st st-${e.status}">${esc(STATUS[e.status].zh)}</span></div><button class="x" data-close aria-label="关闭">✕</button></div>
-    <h2 class="dtitle">${esc(title(e))}</h2>${sub(e) ? `<p class="dsub">${esc(sub(e))}</p>` : ''}<p class="did">${esc(e.id)}${e._origin !== 'seed' ? ` · ${e._origin === 'added' ? '新增条目' : '已编辑'}` : ''}</p>
-    <div class="dmeta">${e.year != null ? `<span><b>${esc(when(e))}</b></span>` : ''}${e.region.length ? `<span>${e.region.map(r => esc(REGIONS[r] || r)).join(' · ')}</span>` : ''}${e.domains.map(k => `<span style="color:var(--d-${k})">● ${esc(DOM[k]?.zh || k)}</span>`).join('')}</div>
+  d.innerHTML = `<div class="dhead"><div class="l">${S.hist.length ? '<button class="btn small" data-back>← 返回</button>' : ''}</div><button class="x" data-close aria-label="关闭">✕</button></div>
+    ${visual(e, 'dvis')}
+    <h2 class="dtitle">${esc(title(e))}</h2>${sub(e) ? `<p class="dsub">${esc(sub(e))}</p>` : ''}
+    <div class="dmeta"><span class="dline">${line}</span><span class="st st-${e.status}">${esc(STATUS[e.status].zh)}</span>${e._origin !== 'seed' ? `<span class="tag" style="cursor:default">${e._origin === 'added' ? '新增条目' : '已编辑'}</span>` : ''}</div>
     ${e.summary ? `<p class="dsum">${esc(e.summary)}</p>` : ''}
     ${facts.length ? `<div class="dsec"><h4>资料</h4><dl class="facts">${facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>` : ''}
     ${e.continuity.length ? `<div class="dsec"><h4>故事线</h4><div class="fopts">${e.continuity.map(c => `<span class="tag" style="cursor:default">${esc(c)}</span>`).join('')}</div></div>` : ''}
     ${e.tags.length || e.edition.length ? `<div class="dsec"><h4>标签与发行类型</h4><div class="fopts">${e.edition.map(x => `<button class="chip" data-edgo="${esc(x)}">${esc(EDITIONS[x] || x)}</button>`).join('')}${e.tags.map(t => `<button class="tag" data-tag="${esc(t)}">#${esc(t)}</button>`).join('')}</div></div>` : ''}
-    ${groups.size ? `<div class="dsec"><h4>关系 · ${relCount}</h4>${[...groups].map(([lab, list]) => `<div class="rgroup"><span class="lab">${esc(lab)}</span><div class="cs">${list.map(({o, note}) => `<button class="chip ent" style="--c:${col(o)}" data-open="${esc(o.id)}"><span class="dt"></span><span class="t">${esc(short(o))}</span>${note ? `<span class="note-i">${esc(note)}</span>` : ''}</button>`).join('')}</div></div>`).join('')}</div>` : ''}
+    ${rel.n ? `<div class="dsec"><h4>关系 · ${rel.n}</h4>${rel.html}</div>` : ''}
     <div class="dsec"><h4>来源</h4>${e.source.length ? `<ol class="srcs">${e.source.map(s => s && s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label || s.url)}</a></li>` : `<li>${esc(s && s.label || s)}</li>`).join('')}</ol>` : `<p style="color:var(--ink-3);font-size:13.5px">还没有记录来源。</p>`}</div>
-    <div class="dact"><button class="btn small" data-locate="${esc(e.id)}">在关系网络中定位</button>${S.canEdit ? `<button class="btn small" data-edit="${esc(e.id)}">编辑</button>${e._origin === 'override' ? `<button class="btn small" data-restore="${esc(e.id)}">恢复原始版本</button>` : ''}<button class="btn small danger" data-del="${esc(e.id)}">删除</button>` : ''}</div>`;
+    <div class="dact"><button class="btn small" data-locate="${esc(e.id)}">在关系网络中查看</button>${S.canEdit ? `<button class="btn small" data-edit="${esc(e.id)}">编辑</button>${e._origin === 'override' ? `<button class="btn small" data-restore="${esc(e.id)}">恢复原始版本</button>` : ''}<button class="btn small danger" data-del="${esc(e.id)}">删除</button>` : ''}</div>`;
   d.hidden = false; d.scrollTop = 0;
   $('[data-close]', d).focus({preventScroll:true});
   try { history.replaceState(null, '', '#' + id); } catch {}
@@ -577,14 +832,14 @@ function copyJSON(which){
   try { navigator.clipboard.writeText(txt).then(() => toast(`已复制 ${list.length} 个条目的 JSON`), fallback); } catch { fallback(); }
 }
 function render(v){
-  ({universe:renderUniverse, graph:renderGraph, archive:renderArchive, timeline:renderTimeline, world:renderWorld, design:renderDesign, schema:renderSchema})[v]();
+  ({universe:renderUniverse, story:renderStory, parks:renderParks, merch:renderMerch, graph:renderGraph, archive:renderArchive, timeline:renderTimeline, world:renderWorld, design:renderDesign, schema:renderSchema})[v]();
 }
 function rerender(){ render(S.view); if (S.view !== 'universe') S._uniDirty = true; if (!$('#drawer').hidden && S.cur){ if (S.byId.has(S.cur)) openEntity(S.cur, false); else closeDrawer(); } }
 function go(v, keepDrawer){
   if (!VIEWS.includes(v)) v = 'universe';
   S.view = v;
   $$('.view').forEach(s => { s.hidden = s.id !== 'v-' + v; });
-  $$('.tabs button').forEach(b => { if (b.dataset.view === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+  $$('[data-view]').forEach(b => { if (b.dataset.view === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
   if (v === 'archive'){ const fb = $('#facetsBox'); if (!S._fbInit){ S._fbInit = true; if (matchMedia('(max-width:860px)').matches) fb.open = false; } }
   render(v);
   if (!keepDrawer) closeDrawer();
@@ -603,7 +858,8 @@ document.addEventListener('click', ev => {
   if ((el = c('[data-back]'))) { const p = S.hist.pop(); if (p) openEntity(p, false); return; }
   if ((el = c('[data-open]'))) return openEntity(el.dataset.open);
   if ((el = c('#orbit [data-id]'))) return openEntity(el.dataset.id);
-  if ((el = c('[data-dom]'))) { resetFilters(); S.f.domain.add(el.dataset.dom); return go('archive'); }
+  if ((el = c('[data-ch]'))) return goChapter(el.dataset.ch);
+  if ((el = c('[data-gdom]'))) { if (G){ G.domPin = G.domPin === el.dataset.gdom ? null : el.dataset.gdom; G.sel = null; paintGraph(); $$('#legend [data-gdom]').forEach(b => b.setAttribute('aria-pressed', String(G.domPin === b.dataset.gdom))); } return; }
   if ((el = c('[data-domgo]'))) { resetFilters(); S.f.domain.add(el.dataset.domgo); return go('archive'); }
   if ((el = c('[data-typego]'))) { resetFilters(); S.f.type.add(el.dataset.typego); return go('archive'); }
   if ((el = c('[data-edgo]'))) { resetFilters(); S.f.edition.add(el.dataset.edgo); return go('archive'); }
@@ -637,10 +893,16 @@ document.addEventListener('keydown', ev => {
   if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('.dn,.hub,.pin')){ ev.preventDefault(); ev.target.dispatchEvent(new MouseEvent('click', {bubbles:true})); }
 });
 const orbit = $('#orbit');
-orbit.addEventListener('mouseover', ev => { const n = ev.target.closest('[data-id]'); if (n) return orbitFocus(n.dataset.id); const d = ev.target.closest('[data-dom]'); if (d) return orbitDomain(d.dataset.dom); });
+orbit.addEventListener('mouseover', ev => { const n = ev.target.closest('[data-id]'); if (n) return orbitFocus(n.dataset.id); const d = ev.target.closest('[data-ch]'); if (d) return orbitChapter(d.dataset.ch); });
 orbit.addEventListener('mouseleave', () => orbitFocus(null));
-orbit.addEventListener('focusin', ev => { const d = ev.target.closest('[data-dom]'); if (d) orbitDomain(d.dataset.dom); else if (ev.target.closest('.hub')) orbitFocus('chr.dumbo'); });
+orbit.addEventListener('focusin', ev => { const d = ev.target.closest('[data-ch]'); if (d) orbitChapter(d.dataset.ch); else if (ev.target.closest('.hub')) orbitFocus('chr.dumbo'); });
 orbit.addEventListener('focusout', () => orbitFocus(null));
+const legend = $('#legend');
+const legendHover = ev => { const b = ev.target.closest('[data-gdom]'); if (b && G){ G.dom = b.dataset.gdom; paintGraph(); } };
+const legendOut = () => { if (G){ G.dom = null; paintGraph(); } };
+legend.addEventListener('mouseover', legendHover); legend.addEventListener('focusin', legendHover);
+legend.addEventListener('mouseleave', legendOut); legend.addEventListener('focusout', legendOut);
+document.addEventListener('change', ev => { if (ev.target.id === 'geoToggle'){ S.showGeo = ev.target.checked; applyGeo(); paintGraph(); } });
 let qT = 0;
 $('#q').addEventListener('input', ev => { clearTimeout(qT); qT = setTimeout(() => { S.f.q = ev.target.value.trim(); if (S.view !== 'archive') go('archive'); else renderArchive(); }, 160); });
 $('#q').addEventListener('keydown', ev => { if (ev.key === 'Enter'){ S.f.q = ev.target.value.trim(); go('archive'); } });

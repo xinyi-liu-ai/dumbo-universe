@@ -6,15 +6,18 @@
 
 ## 页面
 
-| 视图 | 内容 |
+| 页面 | 内容 |
 | --- | --- |
-| 宇宙 | 首页轨道图。Dumbo 在中心，内圈是 10 个领域，外圈是全部条目 |
-| 关系网络 | 力导向图，节点是条目，连线是关系 |
-| 档案库 | 按领域、类型、地区、角色、发行类型、来源可信度、年份筛选 |
+| 宇宙 | 首页。Dumbo 在中心，内圈是 7 个栏目入口，外圈是全部条目 |
+| 故事与角色 | 两部电影、1941 版的十个剧情场景、角色、歌曲与幕后 |
+| 乐园 | 六座旋转飞象的开放顺序和照片，乐园限定商品 |
+| 商品与系列 | 按系列整理的商品，以及零售渠道 |
+| 关系网络 | 完整关系图。Dumbo 固定在中心，按关系远近分圈；名字随缩放逐级显示；不同性质的关系用不同线型 |
 | 时间轴 | 1939 年至今，整五周年用金色标出 |
 | 世界 | 地图与地区列表 |
 | 造型演变 | Dumbo 各时期造型的示意图 |
-| 数据结构 | 条目类型、关系类型、来源可信度说明，导出 JSON |
+| 全部档案 | 搜索框旁边的入口，可按领域、类型、地区、角色、发行类型、来源可信度、年份筛选 |
+| 数据结构 | 维护用，不在导航里。访问 `#schema` 打开，可以查看类型与关系说明、导出 JSON |
 
 ## 文件结构
 
@@ -80,6 +83,7 @@ data/entities.json      全部条目，增删改都在这里
 | `status` | 是 | 来源可信度：`official` `catalog` `archive` `secondary` `collector-reported` `unknown` |
 | `source` | 否 | `[{ "label": "标题", "url": "链接" }]` |
 | `geo` | 否 | 地图位置：`[纬度, 经度, "地点名", "标签方向 l/r/t/b"]`，同名地点会合并成一个点 |
+| `image` | 否 | 详情页顶部的图片：`{"src": "图片地址", "credit": "作者", "license": "授权", "page": "来源页面", "note": "备注"}`。自己拍的照片可以放进仓库的 `images/` 文件夹，`src` 写 `images/文件名.jpg`。没有图片时会显示按类型绘制的插图 |
 
 ### 条目类型
 
@@ -87,7 +91,7 @@ data/entities.json      全部条目，增删改都在这里
 
 ### 常用关系
 
-`appears_in` 登场于 · `depicts` 描绘角色 · `friend_of` 朋友 · `parent_of` 父母 · `helps` 帮助 · `based_on` 改编自 · `adaptation_of` 翻拍自 · `edition_of` 发行版本 · `written_by` `directed_by` `composed_by` `voiced_by` 幕后 · `part_of_collection` 属于系列 · `sold_by` 销售渠道 · `released_for` 纪念 · `celebrates` 庆祝 · `featured_at` 亮相活动 · `version_of` 其他版本 · `uses_motif` 母题 · `associated_with` `related_to` 关联
+`appears_in` 登场于 · `depicts` 描绘角色 · `best_friend_of` 最好的朋友 · `friend_of` 朋友 · `parent_of` 父母 · `sibling_of` 兄弟姐妹 · `helps` 帮助 · `based_on` 改编自 · `adaptation_of` 翻拍自 · `edition_of` 发行版本 · `written_by` `directed_by` `composed_by` `voiced_by` 幕后 · `part_of_collection` 属于系列 · `sold_by` 销售渠道 · `released_for` 纪念 · `celebrates` 庆祝 · `featured_at` 亮相活动 · `version_of` 其他版本 · `uses_motif` 母题 · `associated_with` `related_to` 关联
 
 完整列表见网站的「数据结构」页。关系只需要写一个方向，页面会自动在目标条目上显示反向关系。
 
@@ -103,4 +107,4 @@ python -m http.server 8000
 
 ## 说明
 
-非官方粉丝资料库，与 The Walt Disney Company 无关联。角色与作品名称归各自权利人所有。造型演变页的插图是根据各时期常见风格绘制的示意图。地图底图来自 [Natural Earth](https://www.naturalearthdata.com/)（公有领域），经 [world-atlas](https://github.com/topojson/world-atlas) 转换。
+非官方粉丝资料库，与 The Walt Disney Company 无关联。角色与作品名称归各自权利人所有。造型演变页的插图是根据各时期常见风格绘制的示意图。乐园照片、1939 年原作插画和明信片来自 Wikimedia Commons，均为 CC 授权或公有领域，作者与授权标注在每张图片下方。地图底图来自 [Natural Earth](https://www.naturalearthdata.com/)（公有领域），经 [world-atlas](https://github.com/topojson/world-atlas) 转换。

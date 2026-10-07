@@ -40,7 +40,7 @@
     ],
     "rel": [
       [
-        "friend_of",
+        "best_friend_of",
         "chr.timothy"
       ],
       [
@@ -62,6 +62,10 @@
       [
         "uses_motif",
         "des.ears"
+      ],
+      [
+        "uses_motif",
+        "con.flight"
       ]
     ]
   },
@@ -154,7 +158,7 @@
     ],
     "rel": [
       [
-        "friend_of",
+        "best_friend_of",
         "chr.dumbo"
       ],
       [
@@ -181,6 +185,10 @@
       [
         "associated_with",
         "con.feather"
+      ],
+      [
+        "associated_with",
+        "con.flight"
       ]
     ]
   },
@@ -497,6 +505,10 @@
       [
         "friend_of",
         "chr.dumbo"
+      ],
+      [
+        "sibling_of",
+        "chr.joe"
       ]
     ]
   },
@@ -769,7 +781,14 @@
         "written_by",
         "per.pearl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/5/54/Dumbo1939.webp",
+      "credit": "Helen Durney（插画）",
+      "license": "公有领域",
+      "page": "https://commons.wikimedia.org/wiki/File:Dumbo1939.webp",
+      "note": "1939 年原作中的 Dumbo"
+    }
   },
   {
     "id": "per.aberson",
@@ -1328,6 +1347,33 @@
     ]
   },
   {
+    "id": "con.flight",
+    "type": "Concept",
+    "zh": "飞行",
+    "name": "Flight",
+    "domains": [
+      "origins",
+      "design"
+    ],
+    "year": 1941,
+    "tags": [
+      "母题"
+    ],
+    "summary": "Dumbo 的能力，也是整个故事的落点：被嘲笑的耳朵最后成了翅膀。乐园里的旋转飞象，把“和 Dumbo 一起飞”变成了可以亲身体验的事。",
+    "status": "secondary",
+    "source": [],
+    "rel": [
+      [
+        "appears_in",
+        "work.dumbo1941"
+      ],
+      [
+        "associated_with",
+        "con.feather"
+      ]
+    ]
+  },
+  {
     "id": "con.pinkelephants",
     "type": "Concept",
     "zh": "粉红大象游行",
@@ -1796,7 +1842,14 @@
         "depicts",
         "chr.dumbo"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Disneyland_-_40369337103.jpg/960px-Disneyland_-_40369337103.jpg",
+      "credit": "Jeremy Thompson",
+      "license": "CC BY 2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Disneyland_-_40369337103.jpg",
+      "note": "2019 年"
+    }
   },
   {
     "id": "attr.mk",
@@ -1846,7 +1899,14 @@
         "version_of",
         "attr.dl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Dumbo_the_Flying_Elephant_Close-up.jpg/960px-Dumbo_the_Flying_Elephant_Close-up.jpg",
+      "credit": "HarshLight",
+      "license": "CC BY 2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Dumbo_the_Flying_Elephant_Close-up.jpg",
+      "note": "2014 年"
+    }
   },
   {
     "id": "attr.tdl",
@@ -1895,7 +1955,13 @@
         "version_of",
         "attr.dl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Dumbo_the_Flying_Elephant_TDL.JPG/960px-Dumbo_the_Flying_Elephant_TDL.JPG",
+      "credit": "Freddo",
+      "license": "CC BY-SA 4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Dumbo_the_Flying_Elephant_TDL.JPG"
+    }
   },
   {
     "id": "attr.dlp",
@@ -1944,7 +2010,14 @@
         "version_of",
         "attr.dl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Petite_vu_panoramique_sur_Fantasyland_depuis_la_Gare_ferroviaire_du_Disneyland_Railroad_%28Paris%29_19.09.29.jpg/960px-Petite_vu_panoramique_sur_Fantasyland_depuis_la_Gare_ferroviaire_du_Disneyland_Railroad_%28Paris%29_19.09.29.jpg",
+      "credit": "Alexandre Genty",
+      "license": "CC0",
+      "page": "https://commons.wikimedia.org/wiki/File:Petite_vu_panoramique_sur_Fantasyland_depuis_la_Gare_ferroviaire_du_Disneyland_Railroad_(Paris)_19.09.29.jpg",
+      "note": "从车站望向 Fantasyland，可以看到飞象"
+    }
   },
   {
     "id": "attr.hkdl",
@@ -1993,7 +2066,14 @@
         "version_of",
         "attr.dl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/HK_Disneyland_%E5%B0%8F%E9%A3%9B%E8%B1%A1_Dumbo_the_Flying_Elephant_Oct-2013_Kiddie_Plane_Ride.JPG/960px-HK_Disneyland_%E5%B0%8F%E9%A3%9B%E8%B1%A1_Dumbo_the_Flying_Elephant_Oct-2013_Kiddie_Plane_Ride.JPG",
+      "credit": "Hoifosuhetaizhu",
+      "license": "CC BY-SA 3.0",
+      "page": "https://commons.wikimedia.org/wiki/File:HK_Disneyland_%E5%B0%8F%E9%A3%9B%E8%B1%A1_Dumbo_the_Flying_Elephant_Oct-2013_Kiddie_Plane_Ride.JPG",
+      "note": "2013 年"
+    }
   },
   {
     "id": "attr.shdl",
@@ -2042,7 +2122,14 @@
         "version_of",
         "attr.dl"
       ]
-    ]
+    ],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Dumbo_the_Flying_Elephant_%2829331970430%29.jpg/960px-Dumbo_the_Flying_Elephant_%2829331970430%29.jpg",
+      "credit": "Jeremy Thompson",
+      "license": "CC BY 2.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Dumbo_the_Flying_Elephant_(29331970430).jpg",
+      "note": "2016 年"
+    }
   },
   {
     "id": "attr.caseyjr",
@@ -2074,7 +2161,14 @@
         "chr.caseyjr"
       ]
     ],
-    "source": []
+    "source": [],
+    "image": {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Casey_Jr._Circus_Train_%28Disneyland%29_July_2022.JPG/960px-Casey_Jr._Circus_Train_%28Disneyland%29_July_2022.JPG",
+      "credit": "Benoît Prieur",
+      "license": "CC0",
+      "page": "https://commons.wikimedia.org/wiki/File:Casey_Jr._Circus_Train_(Disneyland)_July_2022.JPG",
+      "note": "2022 年"
+    }
   },
   {
     "id": "evt.d23_2026",
@@ -2960,6 +3054,53 @@
       ]
     ],
     "source": []
+  },
+  {
+    "id": "cul.postcard_dl",
+    "type": "CulturalArtifact",
+    "zh": "Disneyland 飞象明信片",
+    "short": "飞象明信片",
+    "name": "“Dumbo Ride” Disneyland postcard (Curt Teich)",
+    "domains": [
+      "culture",
+      "parks"
+    ],
+    "region": [
+      "US"
+    ],
+    "tags": [
+      "明信片",
+      "复古"
+    ],
+    "summary": "Curt Teich 公司印制的 Disneyland 明信片，画面是早年的飞象设施，说明文字写着“Dumbo proves that Disneyland is truly the magic kingdom”。具体年份不明，原件收藏于 Curt Teich 明信片档案。",
+    "facts": {
+      "印制": "Curt Teich",
+      "年份": "不明",
+      "版权": "美国公有领域（未续展）"
+    },
+    "status": "archive",
+    "source": [
+      {
+        "label": "Wikimedia Commons · Dumbo Ride postcard (NBY 863)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dumbo_Ride,_Dumbo_proves_that_Disneyland_is_truly_the_magic_kingdom_as_he_soars_through..._(NBY_863).jpg"
+      }
+    ],
+    "image": {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Dumbo_Ride%2C_Dumbo_proves_that_Disneyland_is_truly_the_magic_kingdom_as_he_soars_through..._%28NBY_863%29.jpg",
+      "credit": "Curt Teich 明信片档案",
+      "license": "公有领域",
+      "page": "https://commons.wikimedia.org/wiki/File:Dumbo_Ride,_Dumbo_proves_that_Disneyland_is_truly_the_magic_kingdom_as_he_soars_through..._(NBY_863).jpg"
+    },
+    "rel": [
+      [
+        "depicts",
+        "attr.dl"
+      ],
+      [
+        "depicts",
+        "chr.dumbo"
+      ]
+    ]
   },
   {
     "id": "cul.storiesmatter",
